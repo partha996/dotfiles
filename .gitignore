@@ -2,12 +2,15 @@
 .config/nvim/lazy-lock.json
 .config/nvim/pluginlist
 .config/btop/btop.log
-.config/code/
+.config/Code/*
+.config/Code/User/History/
+.config/Code/User/globalStorage/
+.config/Code/User/workspaceStorage/
 
 # Allow tracking of the User directory inside Code
-!.config/code/User/
+!.config/Code/User/
 
 # Allow tracking of the User directory inside Code
-!.config/code/User/keybindings.json
-!.config/code/User/settings.json
+!.config/Code/User/keybindings.json
+!.config/Code/User/settings.json
 
