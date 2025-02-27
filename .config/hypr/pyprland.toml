@@ -1,0 +1,59 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  #"lost_windows",
+  #"monitors",
+  #"toggle_dpms",
+  #"magnify",
+  "expose",
+  #"shift_monitors",
+  #"workspaces_follow_focus",
+  "toggle_special",
+]
+
+#[monitors.placement]
+#"Acer".top_center_of = "Sony"
+
+#[workspaces_follow_focus]
+#max_workspaces = 9
+
+[expose.overview]
+include_special = false 
+
+[scratchpads.term]
+animation = "fromBottom"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+size = "40% 50%"
+position = "30% 25%"
+
+[scratchpads.term1]
+animation = "fromTop"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm1"
+size = "40% 50%"
+position = "30% 25%"
+
+
+[scratchpads.volume]
+animation = "fromBottom"
+command = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
+lazy = true
+size = "60% 40%"
+unfocus = "hide"
+
+#[scratchpads.bluetooth]
+#animation = "fromLeft"
+#class = "org.kde.bluedevilwizard"
+#command = "bluedevil-wizard"
+#size = "20% 30%"
+#unfocus = "hide"
+
+#[scratchpads.music]
+#animation = "fromTop"
+#class = "zen-alpha"
+#command = 'zen-browser --new-window "music.youtube.com"'
+#size = "75% 60%"
+#unfocus = "hide"
+

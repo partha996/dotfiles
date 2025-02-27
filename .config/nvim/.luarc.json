@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "call",
+        "format",
+        "java",
+        "requires"
+    ]
+}

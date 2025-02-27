@@ -1,0 +1,187 @@
+* {
+	border: none;
+	border-radius: 0px;
+	font-family: "JetBrainsMono Nerd Font";
+	font-weight: bold;
+	font-size: 15px;
+	min-height: 10px;
+}
+
+
+window#waybar {
+	background: transparent;
+}
+
+#workspaces button {
+	box-shadow: none;
+	text-shadow: none;
+	padding: 0px;
+	border-radius: 9px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-right: 0px;
+	color: #cdd6f4;
+	animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+	background: #cba6f7;
+	color: #313244;
+	margin-left: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-right: 3px;
+	animation: ws_active 20s ease-in-out 1;
+	transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button:hover {
+	background: #f5c2e7;
+	color: #313244;
+	animation: ws_hover 20s ease-in-out 1;
+	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray menu * {
+	min-height: 16px;
+}
+
+#tray menu separator {
+	min-height: 10px;
+}
+
+#custom-fedora {
+	margin-left: 5px;
+	/* padding: 0 10px; */
+	font-size: 20px;
+	transition: color 0.5s;
+}
+
+#custom-fedora:hover {
+	color: #1793d1;
+}
+
+#custom-fedora,
+#backlight,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#custom-notification,
+#custom-powermenu,
+#power-profiles-daemon,
+#pulseaudio,
+#tray,
+#workspaces,
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#custom-rr_end {
+	/* color: #cdd6f4; */
+	background: #11111b;
+	opacity: 1;
+	margin: 4px 0px 4px 0px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#custom-fedora {
+	color: rgb(80, 163, 219);
+}
+
+#backlight {
+	color: #8aadf4;
+}
+
+#battery {
+	color: #8aadf4;
+}
+
+#clock {
+	color: #7287fd;
+}
+
+#cpu {
+	color: #89dceb;
+}
+
+#memory {
+	color: #89dceb;
+}
+
+#temperature {
+	color: #89dceb;
+}
+
+#network {
+	color: #8aadf4;
+}
+
+#custom-notification {
+color: #dc8a78;
+}
+
+#custom-powermenu {
+	color:#dc8a78;
+}
+
+#power-profiles-daemon {
+	color:#40a02b;
+}
+
+#pulseaudio {
+color: #8aadf4;
+}
+
+#tray {
+	color: white;
+}
+
+
+#workspaces {
+	padding: 0px;
+}
+
+#custom-r_end {
+	border-radius: 0px 21px 21px 0px;
+	margin-right: 8px;
+	padding-right: 1px;
+}
+
+#custom-l_end {
+	border-radius: 21px 0px 0px 21px;
+	margin-left: 9px;
+	padding-left: 1px;
+}
+
+#custom-sr_end {
+	border-radius: 0px;
+	margin-right: 9px;
+	padding-right: 3px;
+}
+
+#custom-sl_end {
+	border-radius: 0px;
+	margin-left: 9px;
+	padding-left: 3px;
+}
+
+#custom-rr_end {
+	border-radius: 0px 7px 7px 0px;
+	margin-right: 9px;
+	padding-right: 3px;
+}
+
+#custom-rl_end {
+	border-radius: 7px 0px 0px 7px;
+	margin-left: 9px;
+	padding-left: 3px;
+}

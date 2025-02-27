@@ -1,0 +1,77 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+d",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j f",
+        "command": "editor.toggleFold",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+j h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+j shift+v",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+j shift+h",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFolder",
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+        
+    },
+    {
+        "key": "ctrl+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+]

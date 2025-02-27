@@ -1,0 +1,8 @@
+width = 750px
+height = 400px
+columns = 2
+allow_images = 1
+insensitive  = 1
+hide_scroll = 1
+prompt = applications
+hides_search = 0  

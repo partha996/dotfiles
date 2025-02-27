@@ -1,0 +1,31 @@
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# make promt a single line instead of two lines
+[line_break]
+disabled=true
+# Inserts a blank line between shell prompts
+add_newline =true 
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are conf>
+success_symbol = '[➜](bold green)' # The 'succes>
+error_symbol = "[✗](bold red)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = false 
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+[[battery.display]]
+threshold = 10
+style = 'bold red'
+[python]
+symbol= ' '
+# [rust]
+# symbol= ' '
+# style = 'bold red'

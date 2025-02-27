@@ -1,0 +1,13 @@
+.config/tmux/plugins/
+.config/nvim/lazy-lock.json
+.config/nvim/pluginlist
+.config/btop/btop.log
+.config/code/
+
+# Allow tracking of the User directory inside Code
+!.config/code/User/
+
+# Allow tracking of the User directory inside Code
+!.config/code/User/keybindings.json
+!.config/code/User/settings.json
+
