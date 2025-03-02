@@ -35,9 +35,7 @@
   },
   "network": {
     "Interval": 10,
-    "format-wifi": "   {bandwidthDownBytes}",
-    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-    "format-ethernet": "{icon} {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-wifi": "  ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠"
   },
@@ -78,7 +76,7 @@
     "spacing": 2
   },
   "backlight": {
-    "format": " {icon} {percent}%",
+    "format": "{icon} {percent}%",
     "format-icons": ["", "","", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠", "󰳲"]
   },
   "power-profiles-daemon": {

@@ -4,6 +4,16 @@ eval "$(starship init zsh)"
 # pokemon art on startup
 pokemon-colorscripts -r
 
+# Custom keymaps
+
+
+# yazi
+open_yazi() {
+	exec yazi
+}
+zle -N open_yazi
+bindkey '^Y' 'open_yazi'
+
 
 # path for rust binaries
 export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
