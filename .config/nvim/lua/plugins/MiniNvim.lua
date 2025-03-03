@@ -37,8 +37,6 @@ return {
 			},
 		})
 
-		-- xoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxxoxoxoxoxooxxoxooxoxoxx
-
 		require("mini.comment").setup({
 
 			-- No need to copy this inside `setup()`. Will be used automatically.
@@ -85,15 +83,11 @@ return {
 			},
 		})
 
-		-- xoxoxoxoxoxoxoxoxooxoxoxoxoxxoxoxoxoxoxoxoxxoxooxoxoxox
-
 		require("mini.cursorword").setup({
 			{
 				delay = 100,
 			},
 		})
-
-		--xoxoxoxoxoxoxoxoxoxoxoxooxoxx
 
 		require("mini.files").setup({
 			{
@@ -148,8 +142,6 @@ return {
 				},
 			},
 		})
-
-		-- xoxoxoxoxoxoxoxoxoxoxo
 
 		-- require("mini.move").setup({
 		-- 	{
@@ -212,10 +204,7 @@ return {
 		-- 	},
 		-- })
 
-		--xoxoxoxoxoxoxooxoxoxoxoxox
-
 		require("mini.pairs").setup({
-			-- No need to copy this inside `setup()`. Will be used automatically.
 			{
 				-- In which modes mappings from this `config` should be created
 				modes = { insert = true, command = false, terminal = false },
@@ -289,7 +278,6 @@ return {
 			},
 		})
 
-		--xoxoxoxoxoxoxoxoxxoxoxo
 		require("mini.bracketed").setup({
 
 			buffer = { suffix = "", options = {} },
