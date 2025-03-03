@@ -6,6 +6,7 @@
 .config/Code/User/History/
 .config/Code/User/globalStorage/
 .config/Code/User/workspaceStorage/
+.stow-local-ignore
 
 # Allow tracking of the User directory inside Code
 !.config/Code/User/
@@ -13,4 +14,3 @@
 # Allow tracking of the User directory inside Code
 !.config/Code/User/keybindings.json
 !.config/Code/User/settings.json
-
