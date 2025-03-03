@@ -1,23 +1,11 @@
 # Starship themes
 eval "$(starship init zsh)"
 
-# pokemon art on startup
+# Pokemon art on startup
 pokemon-colorscripts -r
 
-# Custom keymaps
-
-
-# yazi
-open_yazi() {
-	exec yazi
-}
-zle -N open_yazi
-bindkey '^Y' 'open_yazi'
-
-
-# path for rust binaries
+# Path for rust binaries
 export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
-
 
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418
@@ -27,12 +15,11 @@ export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
 #    eval "$(/usr/local/bin/starship init zsh)"
 #  }  
 
-# default editor
+# Default editor
 export EDITOR="/bin/nvim"
 
-#set up fzf key bindings and fuzzy completion
+# Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-
 
 #fzf theme(catppuccin)
 export FZF_DEFAULT_OPTS=" \
@@ -63,7 +50,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-#Plugin installations
+# Plugin installations
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
@@ -72,6 +59,7 @@ zinit light jeffreytse/zsh-vi-mode
 
 # Load completions
 autoload -U compinit && compinit
+compinit
 
 # Completion styling
 zstyle ':completion=*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -81,7 +69,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color $realpath'
 
 
-#History configuration
+# History configuration
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -92,6 +80,9 @@ setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+setopt autocd
+stty stop undef # disable ctrl + s
+
 
 # Keybinding for history cycle
 bindkey '^P' history-search-backward
@@ -101,8 +92,18 @@ bindkey '^N' history-search-forward
 [ -f ~/.fzf/key-bindings.zsh ] && source ~/.fzf/key-bindings.zsh
 [ -f ~/.fzf/completion.zsh ] && source ~/.fzf/completion.zsh
 
+# Custom keymaps 
+open_yazi() {
+	yazi <$TTY
+	zle redisplay
+}
+function zvm_after_lazy_keybindings() {
+	zvm_define_widget open_yazi
+	zvm_bindkey vicmd '^Y' open_yazi
+}
 
-# for zoxide
+
+# Completely replace cd with zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
@@ -125,3 +126,4 @@ alias cp='cp -iv'
 alias rm='rm -v'
 alias mv='mv -v'
 alias kdec='kdeconnect-cli' 
+alias lg='lazygit'
