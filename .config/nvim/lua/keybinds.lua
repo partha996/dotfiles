@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>a", require("telescope.builtin").treesitter)
 vim.keymap.set("n", "<leader>lg", "<Cmd>LazyGit<CR>")
 
 -- Make current buffer executable
-vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>mx", "<Cmd>!chmod +x %<CR>")
 
 vim.keymap.set("n", "<leader>I", "<Cmd>lua TSIncrementalSelection<CR>", { noremap = true, silent = true })
 
@@ -66,8 +66,8 @@ vim.keymap.set("n", "<leader>cu", "<Cmd>lua MiniBracketed.comment('backward')<CR
 vim.keymap.set("n", "<Leader>dd", "<Cmd>lua MiniBracketed.diagnostic('forward')<CR>")
 vim.keymap.set("n", "<Leader>du", "<Cmd>lua MiniBracketed.diagnostic('backward')<CR>")
 
-vim.keymap.set("n", "<Leader>xn", "<Cmd>lua MiniBracketed.conflict('forward')<CR>")
-vim.keymap.set("n", "<Leader>xp", "<Cmd>lua MiniBracketed.conflict('backward')<CR>")
+vim.keymap.set("n", "<Leader>xd", "<Cmd>lua MiniBracketed.conflict('forward')<CR>")
+vim.keymap.set("n", "<Leader>xu", "<Cmd>lua MiniBracketed.conflict('backward')<CR>")
 
 vim.keymap.set("n", "<leader>ds", vim.diagnostic.open_float, { desc = "Show diagnostics in floating window" })
 
