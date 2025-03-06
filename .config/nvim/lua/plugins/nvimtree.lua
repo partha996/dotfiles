@@ -60,13 +60,13 @@ return {
 				icons = {
 					glyphs = {
 						git = {
-							-- unmerged = icons.FileUnmerged,
-							-- renamed = icons.FileRenamed,
-							-- deleted = icons.FileDeleted,
-							-- ignored = icons.FileIgnored,
-							-- unstaged = icons.FileUnstaged,
-							-- staged = icons.FileStaged,
-							-- untracked = icons.FileUntracked,
+							unmerged = "",
+							renamed = "󰑕",
+							deleted = "󰛌",
+							ignored = "",
+							unstaged = "✗",
+							staged = "✓",
+							untracked = "󱍋",
 						},
 					},
 				},
