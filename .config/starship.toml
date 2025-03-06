@@ -5,9 +5,10 @@ continuation_prompt = '▶▶ '
 
 format = """ 
 $sudo\
-$battery\
 $jobs\
 $directory\ 
+$cmd_duration\
+$battery\
 $character """
 
 right_format = """
@@ -82,13 +83,30 @@ $time"""
 
 add_newline = false
 
+# [cmd_duration]
+# format = '\[[⏱ $duration]($style)\]'
+
+# [git_status]
+# style = "bold italic bright-blue"
+# format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
+# conflicted = "[◪◦](italic bright-magenta)"
+# ahead = "[▴│[${count}](bold white)│](italic green)"
+# behind = "[▿│[${count}](bold white)│](italic red)"
+# diverged = "[◇ ▴┤[${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)"
+# untracked = "[◌◦](italic bright-yellow)"
+# stashed = "[◃◈](italic white)"
+# modified = "[●◦](italic yellow)"
+# staged = "[▪┤[$count](bold white)│](italic bright-cyan)"
+# renamed = "[◎◦](italic bright-blue)"
+# deleted = "[✕](italic red)"
+
 # make promt a single line instead of two lines
 [line_break]
 disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are conf>
-success_symbol = '[➜](bold green)' # The 'succes>
+[character] 
+success_symbol = "[➜](bold green)"         
 error_symbol = "[✗](bold red)"
 vimcmd_symbol = "[](italic dimmed green)"
 
@@ -119,10 +137,13 @@ symbol = ' '
 style = "bold yellow"
 
 [rust]
- symbol= ' '
- style = 'bold red'
+symbol = ' '
+style = 'bold red'
+
+[lua]
+symbol = ' '
+style = 'bold blue'
 
 [sudo]
-style = 'bold blue'
 symbol = '😈 '
 disabled = false
