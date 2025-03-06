@@ -1,0 +1,5 @@
+# Set the theme to catppuccin Mocha
+--theme="Catppuccin Mocha"
+
+# Full: enables all available components
+--style="full"
