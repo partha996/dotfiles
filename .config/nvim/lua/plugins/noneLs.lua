@@ -14,6 +14,7 @@ return {
 				"prettier",
 				"google_java_format",
 				"clang_format",
+				"yamlfix"
 			},
 		})
 		local null_ls = require("null-ls")
@@ -25,6 +26,7 @@ return {
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.google_java_format,
+				null_ls.builtins.formatting.yamlfix,
 				null_ls.builtins.formatting.shfmt.with({ args = { "-i", "4" } }),
 				require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 				require("none-ls.formatting.ruff_format"),
