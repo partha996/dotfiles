@@ -1,7 +1,22 @@
 -- Basic keybinds
-vim.keymap.set("n","<leader>ws", "<Cmd>w<CR>")
-vim.keymap.set("n","<leader>wq", "<Cmd>wq<CR>")
-vim.keymap.set("n","<leader>q", "<Cmd>q<CR>")
+vim.keymap.set("n", "<leader>ws", "<Cmd>w<CR>")
+vim.keymap.set("n", "<leader>wq", "<Cmd>wq<CR>")
+vim.keymap.set("n", "<leader>q", "<Cmd>q<CR>")
+
+-- Navigating between windows
+vim.keymap.set("n", "<leader>wh", "<Cmd>wincmd h<CR>")
+vim.keymap.set("n", "<leader>wj", "<Cmd>wincmd j<CR>")
+vim.keymap.set("n", "<leader>wk", "<Cmd>wincmd k<CR>")
+vim.keymap.set("n", "<leader>wl", "<Cmd>wincmd l<CR>")
+
+-- Split windows
+vim.keymap.set("n","<leader>vs", "<Cmd>vsplit<CR>")
+vim.keymap.set("n","<leader>hs", "<Cmd>split<CR>")
+
+-- Tab keys
+vim.keymap.set("n","<leader>nt", "<Cmd>tabnew<CR>")
+vim.keymap.set("n","<leader>ct", "<Cmd>tabclose<CR>")
+vim.keymap.set("n","<leader>tc", "<Cmd>tabn<CR>")
 
 -- For lsp
 vim.keymap.set("n", "<leader>hv", vim.lsp.buf.hover, {})
@@ -19,37 +34,37 @@ vim.keymap.set("n", "<leader>r", require("telescope.builtin").registers)
 vim.keymap.set("n", "<leader>ss", require("telescope.builtin").spell_suggest)
 vim.keymap.set("n", "<leader>a", require("telescope.builtin").treesitter)
 
+
 -- Lazygit
-vim.keymap.set("n","<leader>lg", "<Cmd>LazyGit<CR>")
+vim.keymap.set("n", "<leader>lg", "<Cmd>LazyGit<CR>")
 
--- make current buffer executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
+-- Make current buffer executable
+vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>")
 
-vim.keymap.set("n", "<leader>I", ":TSIncrementalSelection<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>I", "<Cmd>lua TSIncrementalSelection<CR>", { noremap = true, silent = true })
 
--- For mini file tree
-vim.keymap.set("n", "<leader>e", "<Cmd>lua MiniFiles.open()<CR>")
+-- File explorer
+vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>")
+
+-- Mini Ufo fold
+vim.keymap.set("n", "<leader>fo", require("ufo").openAllFolds)
+vim.keymap.set("n", "<leader>fc", require("ufo").closeAllFolds)
 
 -- Resize panes with Ctrl + Arrow Keys
 vim.keymap.set("n", "<C-Up>", "<C-w>+", { desc = "Increase pane height" })
 vim.keymap.set("n", "<C-Down>", "<C-w>-", { desc = "Decrease pane height" })
-vim.keymap.set("n", "<C-Left>", "<C-w><", { desc = "Decrease pane width" })
-vim.keymap.set("n", "<C-Right>", "<C-w>>", { desc = "Increase pane width" })
+vim.keymap.set("n", "<C-Right>", "<C-w><", { desc = "Decrease pane width" })
+vim.keymap.set("n", "<C-Left>", "<C-w>>", { desc = "Increase pane width" })
 
 -- Equalize pane sizes
 vim.keymap.set("n", "<Leader>=", "<C-w>=", { desc = "Equalize pane sizes" })
 
 -- MiniBracketed jumps
-vim.keymap.set("n", "<leader>cf", "<Cmd>lua MiniBracketed.comment('forward')<CR>")
-vim.keymap.set("n", "<leader>cb", "<Cmd>lua MiniBracketed.comment('backward')<CR>")
+vim.keymap.set("n", "<leader>cd", "<Cmd>lua MiniBracketed.comment('forward')<CR>")
+vim.keymap.set("n", "<leader>cu", "<Cmd>lua MiniBracketed.comment('backward')<CR>")
 
-vim.keymap.set("n", "<Leader>wH", "<Cmd>lua MiniBracketed.window('first')<CR>")
-vim.keymap.set("n", "<Leader>wk", "<Cmd>lua MiniBracketed.window('forward')<CR>")
-vim.keymap.set("n", "<Leader>wk", "<Cmd>lua MiniBracketed.window('backward')<CR>")
-vim.keymap.set("n", "<Leader>wL", "<Cmd>lua MiniBracketed.window('last')<CR>")
-
-vim.keymap.set("n", "<Leader>dn", "<Cmd>lua MiniBracketed.diagnostic('forward')<CR>")
-vim.keymap.set("n", "<Leader>dp", "<Cmd>lua MiniBracketed.diagnostic('backward')<CR>")
+vim.keymap.set("n", "<Leader>dd", "<Cmd>lua MiniBracketed.diagnostic('forward')<CR>")
+vim.keymap.set("n", "<Leader>du", "<Cmd>lua MiniBracketed.diagnostic('backward')<CR>")
 
 vim.keymap.set("n", "<Leader>xn", "<Cmd>lua MiniBracketed.conflict('forward')<CR>")
 vim.keymap.set("n", "<Leader>xp", "<Cmd>lua MiniBracketed.conflict('backward')<CR>")

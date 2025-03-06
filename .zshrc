@@ -56,6 +56,7 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
+zinit light Freed-Wu/fzf-tab-source 
 
 # Load completions
 autoload -U compinit && compinit
@@ -65,9 +66,13 @@ compinit
 zstyle ':completion=*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu yes 
+zstyle ':fzf-tab:*' popup-min-size 80 100
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd --color $realpath'
-
+zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+zstyle ':fzf-tab:*' accept-line space
+zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color $word'
+# alias fzp='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 # History configuration
 HISTSIZE=10000
@@ -93,8 +98,17 @@ bindkey '^N' history-search-forward
 [ -f ~/.fzf/completion.zsh ] && source ~/.fzf/completion.zsh
 
 # Custom keymaps 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 open_yazi() {
-	yazi <$TTY
+	y<$TTY
 	zle redisplay
 }
 function zvm_after_lazy_keybindings() {
@@ -102,9 +116,12 @@ function zvm_after_lazy_keybindings() {
 	zvm_bindkey vicmd '^Y' open_yazi
 }
 
-
 # Completely replace cd with zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Bat intrigration with Man pages 
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+# man 2 select
 
 # Aliases
 alias ls='lsd'  
@@ -127,3 +144,6 @@ alias rm='rm -v'
 alias mv='mv -v'
 alias kdec='kdeconnect-cli' 
 alias lg='lazygit'
+alias killNg='cd /home/partha/scripts/ && ./killnightlight.sh'
+alias dinstall='sudo dnf install'
+alias dupdate='sudo dnf update'
