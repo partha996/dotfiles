@@ -1,14 +1,12 @@
-color: 
+---
+color:
   theme: custom
-
-
 # recursion:
 #   enabled: true
 #   depth: 3
-
 layout: grid
 # Whether to add indicator characters to certain listed files
-indicators: true
+indicators: false
 
 # Whether to show quotes on filenames
 literal: true

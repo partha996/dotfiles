@@ -83,9 +83,6 @@ $time"""
 
 add_newline = false
 
-# [cmd_duration]
-# format = '\[[⏱ $duration]($style)\]'
-
 [git_commit]
 commit_hash_length = 4
 tag_symbol = '🔖 '
@@ -108,8 +105,8 @@ deleted = '🗑'
 disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
-[character] 
-success_symbol = "[➜](bold green)"         
+[character]
+success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 vimcmd_symbol = "[](italic dimmed green)"
 
