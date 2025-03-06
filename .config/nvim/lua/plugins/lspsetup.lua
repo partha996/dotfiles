@@ -19,6 +19,7 @@ return {
 					"jsonls",
 					"pylsp",
 					"taplo",
+					"yamlls"
 				},
 			})
 		end,
@@ -38,6 +39,7 @@ return {
 			lspconfig.jsonls.setup({ capabilities = capabilities })
 			lspconfig.pylsp.setup({ capabilities = capabilities })
 			lspconfig.taplo.setup({ capabilities = capabilities })
+			lspconfig.yamlls.setup({ capabilities = capabilities })
 		end,
 	},
 }
