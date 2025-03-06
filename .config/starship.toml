@@ -1,31 +1,128 @@
-
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+continuation_prompt = '▶▶ '
+
+format = """ 
+$sudo\
+$battery\
+$jobs\
+$directory\ 
+$character """
+
+right_format = """
+$singularity\
+$kubernetes\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$crystal\
+$custom\
+$status\
+$os\
+$time"""
+
+add_newline = false
+
 # make promt a single line instead of two lines
 [line_break]
-disabled=true
-# Inserts a blank line between shell prompts
-add_newline =true 
+disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are conf>
 success_symbol = '[➜](bold green)' # The 'succes>
 error_symbol = "[✗](bold red)"
+vimcmd_symbol = "[](italic dimmed green)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = false 
+disabled = false
+
+[directory]
+home_symbol = "󰋜 "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Pictures" = "  "
+"video" = "  "
 
 [battery]
 full_symbol = '🔋 '
 charging_symbol = '⚡️ '
 discharging_symbol = '💀 '
+
 [[battery.display]]
 threshold = 10
 style = 'bold red'
+
 [python]
-symbol= ' '
-# [rust]
-# symbol= ' '
-# style = 'bold red'
+symbol = ' '
+style = "bold yellow"
+
+[rust]
+ symbol= ' '
+ style = 'bold red'
+
+[sudo]
+style = 'bold blue'
+symbol = '😈 '
+disabled = false
