@@ -1,2 +1,17 @@
 color: 
   theme: custom
+
+
+# recursion:
+#   enabled: true
+#   depth: 3
+
+layout: grid
+# Whether to add indicator characters to certain listed files
+indicators: true
+
+# Whether to show quotes on filenames
+literal: true
+
+# Whether to dereference symbolic links
+dereference: false
