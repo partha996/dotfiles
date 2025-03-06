@@ -21,7 +21,7 @@ export EDITOR="/bin/nvim"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-#fzf theme(catppuccin)
+# Fzf theme(catppuccin)
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -105,15 +105,6 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
-}
-
-open_yazi() {
-	y<$TTY
-	zle redisplay
-}
-function zvm_after_lazy_keybindings() {
-	zvm_define_widget open_yazi
-	zvm_bindkey vicmd '^Y' open_yazi
 }
 
 # Completely replace cd with zoxide
