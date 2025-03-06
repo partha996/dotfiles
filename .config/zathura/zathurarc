@@ -1,2 +1,5 @@
 set adjust-open width
 set selection-clipboard clipboard
+set highlight-active-color #7EC9D9
+set highlight-color #3E5768 
+
