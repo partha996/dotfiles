@@ -1,8 +1,19 @@
-# Starship themes
-eval "$(starship init zsh)"
+#####################################################################
+## ███████████  █████████  █████   █████ ███████████     █████████ ##
+##░█░░░░░░███  ███░░░░░███░░███   ░░███ ░░███░░░░░███   ███░░░░░███##
+##░     ███░  ░███    ░░░  ░███    ░███  ░███    ░███  ███     ░░░ ##
+##     ███    ░░█████████  ░███████████  ░██████████  ░███         ##
+##    ███      ░░░░░░░░███ ░███░░░░░███  ░███░░░░░███ ░███         ##
+##  ████     █ ███    ░███ ░███    ░███  ░███    ░███ ░░███     ███##
+## ███████████░░█████████  █████   █████ █████   █████ ░░█████████ ##
+##░░░░░░░░░░░  ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░   ░░░░░   ░░░░░░░░░  ##
+#####################################################################
 
-# Pokemon art on startup
-pokemon-colorscripts -r
+# Starship themes                                                       
+eval "$(starship init zsh)"                                             
+                                                                        
+# Pokemon art on startup                                                
+pokemon-colorscripts -r                                                 
 
 # Path for rust binaries
 export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
@@ -112,7 +123,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Bat intrigration with Man pages 
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-# man 2 select
 
 # Aliases
 alias ls='lsd'  
