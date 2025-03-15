@@ -3,6 +3,40 @@ return {
 	version = false,
 
 	config = function()
+		require("mini.ai").setup({
+			{
+				custom_textobjects = nil,
+
+				mappings = {
+					-- Main textobject prefixes
+					around = "a",
+					inside = "i",
+
+					-- Next/last variants
+					around_next = "an",
+					inside_next = "in",
+					around_last = "al",
+					inside_last = "il",
+
+					-- Move cursor to corresponding edge of `a` textobject
+					goto_left = "g[",
+					goto_right = "g]",
+				},
+
+				-- Number of lines within which textobject is searched
+				n_lines = 50,
+
+				-- How to search for object (first inside current line, then inside
+				-- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+				-- 'cover_or_nearest', 'next', 'previous', 'nearest'.
+				search_method = "cover_or_next",
+
+				-- Whether to disable showing non-error feedback
+				-- This also affects (purely informational) helper messages shown after
+				-- idle time if user input is required.
+				silent = false,
+			},
+		})
 		require("mini.animate").setup({
 			cursor = {
 				enable = false,
@@ -95,14 +129,27 @@ return {
 					["("] = { action = "open", pair = "()", neigh_pattern = "[^\\]." },
 					["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\]." },
 					["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\]." },
-
 					[")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
 					["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
 					["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-
-					['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\].", register = { cr = false } },
-					["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\].", register = { cr = false } },
-					["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
+					['"'] = {
+						action = "closeopen",
+						pair = '""',
+						neigh_pattern = "[^\\].",
+						register = { cr = false },
+					},
+					["'"] = {
+						action = "closeopen",
+						pair = "''",
+						neigh_pattern = "[^%a\\].",
+						register = { cr = false }
+					},
+					["`"] = {
+						action = "closeopen",
+						pair = "``",
+						neigh_pattern = "[^\\].",
+						register = { cr = false }
+					},
 				},
 			},
 		})
@@ -114,12 +161,12 @@ return {
 				highlight_duration = 500,
 
 				mappings = {
-					add = "<leader>as", -- Add surrounding in Normal and Visual modes
-					delete = "<leader>ds", -- Delete surrounding (sd b(brackets),q(quotes), etc)
-					find = "<leader>fs", -- Find surrounding (to the right)
+					add = "sa", -- Add surrounding in Normal and Visual modes
+					delete = "sd", -- Delete surrounding (sd b(brackets),q(quotes), etc)
+					find = "sf", -- Find surrounding (to the right)
+					replace = "sr", -- Replace surrounding
 					find_left = "", -- Find surrounding (to the left)
 					highlight = "", -- Highlight surrounding
-					replace = "<leader>rs", -- Replace surrounding
 					update_n_lines = "", -- Update `n_lines`
 
 					suffix_last = "", -- Suffix to search with "prev" method
@@ -143,16 +190,15 @@ return {
 				silent = false,
 			},
 		})
-		require("mini.bracketed")
 		require("mini.bracketed").setup({
 			buffer = { suffix = "", options = {} },
 			comment = { suffix = "c", options = {} },
 			conflict = { suffix = "x", options = {} },
 			diagnostic = { suffix = "d", options = {} },
-			file = { suffix = "", options = {} },
 			indent = { suffix = "i", options = {} },
-			jump = { suffix = "j", options = {} },
-			location = { suffix = "l", options = {} },
+			file = { suffix = "", options = {} },
+			jump = { suffix = "", options = {} },
+			location = { suffix = "", options = {} },
 			oldfile = { suffix = "", options = {} },
 			quickfix = { suffix = "", options = {} },
 			treesitter = { suffix = "", options = {} },
@@ -160,5 +206,34 @@ return {
 			window = { suffix = "", options = {} },
 			yank = { suffix = "", options = {} },
 		})
+		require("mini.move").setup({
+			mappings = {
+				-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+				left = "<C-h>",
+				right = "<C-l>",
+				down = "<C-j>",
+				up = "<C-k>",
+
+				-- Move current line in Normal mode
+				line_left = "<C-h>",
+				line_right = "<C-l>",
+				line_down = "<C-j>",
+				line_up = "<C-k>",
+			},
+			options = {
+				-- Automatically reindent selection during linewise vertical move
+				reindent_linewise = true,
+			},
+		})
+		require("mini.splitjoin").setup({
+			mappings = {
+				toggle = "gs",
+				split = "",
+				join = "",
+			},
+		})
+		-- require("mini.trailspace").setup({
+		-- 	only_in_normal_buffers = false,
+		-- })
 	end,
 }
