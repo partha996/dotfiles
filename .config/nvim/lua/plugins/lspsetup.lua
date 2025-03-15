@@ -19,7 +19,9 @@ return {
 					"jsonls",
 					"pylsp",
 					"taplo",
-					"yamlls"
+					"yamlls",
+					"markdown_oxide",
+					"harper_ls",
 				},
 			})
 		end,
@@ -29,17 +31,25 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local navic = require("nvim-navic")
+			local function on_attach(client, bufnr)
+				if client.server_capabilities.documentSymbolProvider then
+					navic.attach(client, bufnr)
+				end
+			end
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.clangd.setup({ capabilities = capabilities })
-			lspconfig.jdtls.setup({ capabilities = capabilities })
-			lspconfig.bashls.setup({ capabilities = capabilities })
-			lspconfig.cssls.setup({ capabilities = capabilities })
-			lspconfig.html.setup({ capabilities = capabilities })
-			lspconfig.jsonls.setup({ capabilities = capabilities })
-			lspconfig.pylsp.setup({ capabilities = capabilities })
-			lspconfig.taplo.setup({ capabilities = capabilities })
-			lspconfig.yamlls.setup({ capabilities = capabilities })
+			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.jdtls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.cssls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.html.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.jsonls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.yamlls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.markdown_oxide.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 		end,
 	},
 }
