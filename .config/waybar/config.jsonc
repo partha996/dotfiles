@@ -81,5 +81,5 @@
     "interval": "once",
     "tooltip": false,
   },
-  "include": ["~/.config/waybar/modules.json"],
+  "include": ["~/.config/waybar/modules.jsonc"],
 }
