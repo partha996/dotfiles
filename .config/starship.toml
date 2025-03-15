@@ -83,45 +83,61 @@ $time"""
 
 add_newline = false
 
+[git_branch]
+symbol = '󰊢  '
+truncation_length = 4
+truncation_symbol = ''
+ignore_branches = []
+
 [git_commit]
 commit_hash_length = 4
 tag_symbol = '🔖 '
 
 [git_status]
-conflicted = '🏳'
-ahead = '🏎💨'
+conflicted = '󱃘 [#e64553]'
+ahead = '[󱄟 ](#ca9ee6)'
 behind = '😰'
 diverged = '😵'
 up_to_date = '✓'
-untracked = '🤷'
+untracked = '[󱚟 ](#7287fd)'
 stashed = '📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
+modified = '[ ](#f9e2af)'
+staged = '[++\($count\)](#CBA6F7)'
+renamed = '[󱇧](#04a5e5)'
+deleted = '[󱕖](#e64553) '
 
-# make promt a single line instead of two lines
+# Make promt a single line instead of two lines
 [line_break]
 disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character]
-success_symbol = "[➜](bold green)"
+success_symbol = "[❯](bold green)"
 error_symbol = "[✗](bold red)"
-vimcmd_symbol = "[](italic dimmed green)"
+vimcmd_symbol = "[](italic dimmed green)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = false
 
 [directory]
-home_symbol = "󰋜 "
+home_symbol = " "
+read_only = "  "
+read_only_style = "#7287fd"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Pictures" = "  "
-"video" = "  "
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Pictures" = "   "
+"video" = "   "
+"hypr" = "  "
+"kitty" = " 󰄛 "
+"yazi" = " 󰇥 "
+"tmux" = "  " 
+"nvim" = "  "
+"keyd" = "  "
+"bat" = " 󰭟 "
+"zathura" = "  "
 
 [battery]
 full_symbol = '🔋 '
@@ -132,17 +148,28 @@ discharging_symbol = '💀 '
 threshold = 10
 style = 'bold red'
 
+[c]
+symbol = ' '
+style = "#04a5e5"
+
 [python]
 symbol = ' '
 style = "bold yellow"
 
 [rust]
-symbol = ' '
+symbol = ' '
 style = 'bold red'
 
 [lua]
 symbol = ' '
 style = 'bold blue'
+
+[golang]
+symbol = ' '
+style = "#89B4FB"
+
+[java]
+style = '#dd7878'
 
 [sudo]
 symbol = '😈 '
