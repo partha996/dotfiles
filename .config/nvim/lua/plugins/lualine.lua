@@ -1,39 +1,31 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
 	config = function()
 		local mode = {
 			"mode",
 			fmt = function(str)
-				return " " .. str
-			end,
-		}
-		local icons = {
-			"icons",
-			fmt = function(str)
-				return "🚀" .. str
+				return " " .. str
 			end,
 		}
 		local lsp_name = {
-			"lsp_name",
-
-			fmt = function()
-				local lsps = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
+			function()
+				local clients = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
 				local icon =
 				    require("nvim-web-devicons").get_icon_by_filetype(vim.api.nvim_buf_get_option(0,
 					    "filetype"))
-				if lsps and #lsps > 0 then
-					local names = {}
-					for _, lsp in ipairs(lsps) do
-						table.insert(names, lsp.name)
+
+				local names = {}
+				for _, client in ipairs(clients) do
+					if client.name ~= "null-ls" then -- Exclude null-ls
+						table.insert(names, client.name)
 					end
-					return string.format("%s %s", table.concat(names, ", "), icon)
-				else
-					return icon or ""
 				end
-			end,
-			on_click = function()
-				vim.api.nvim_command("LspInfo")
+				if #names > 0 then
+					return string.format("  %s %s", table.concat(names, ", "), icon or "")
+				else
+					return "No LSP" -- If no LSP is active
+				end
 			end,
 			color = function()
 				local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
@@ -41,13 +33,16 @@ return {
 				)
 				return { fg = color }
 			end,
+			on_click = function()
+				vim.api.nvim_command("LspInfo")
+			end,
 		}
 		require("lualine").setup({
 			options = {
 				icons_enable = true,
 				theme = "catppuccin",
 				-- component_separators = { left = '•', right = '•' }, --  ·•
-				section_separators = { left = "", right = "" }, --  
+				section_separators = { left = "", right = "" }, --   
 				globalstatus = false,
 				always_show_tabline = true,
 				winbar = { "alpha" },
@@ -56,16 +51,20 @@ return {
 				lualine_a = { mode },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = {
-					{ "filename" },
-					{
-						"lsp_progress",
-						-- Shows LSP progress like current task or function name
-						display_components = { "lsp_client_name", "title", "percentage" },
-						separator = " | ",
-						always_visible = true,
-					},
+					{ "filename", path = 1 },
 				},
-				lualine_x = { icons, lsp_name, "fileformat", "filetype" },
+				lualine_x = {
+					lsp_name,
+					{
+						function()
+							return require("noice").api.statusline.mode.get()
+						end,
+						cond = function()
+							return require("noice").api.statusline.mode.has()
+						end,
+					},
+					"filetype",
+				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
