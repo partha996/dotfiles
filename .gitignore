@@ -1,6 +1,7 @@
 .config/tmux/plugins/
 .config/nvim/lazy-lock.json
 .config/nvim/pluginlist
+.config/nvim/lua/plugins/.extraplugs
 .config/btop/btop.log
 .config/Code/*
 .config/Code/User/History/
