@@ -1,4 +1,4 @@
---tBasic keybinds
+--Basic keybinds
 vim.keymap.set("n", "<leader>ws", "<Cmd>w<CR>", { desc = "write into a buffer" })
 vim.keymap.set("n", "<leader>wq", "<Cmd>wq<CR>", { desc = "write & close a buffer" })
 vim.keymap.set("n", "<leader>q", "<Cmd>q<CR>", { desc = "close buffer" })
@@ -82,10 +82,10 @@ vim.keymap.set("n", "<leader>fo", require("ufo").openAllFolds)
 vim.keymap.set("n", "<leader>fc", require("ufo").closeAllFolds)
 
 -- Resize panes with Ctrl + Arrow Keys
-vim.keymap.set("n", "<C-Up>", "<C-w>+", { desc = "Increase pane height" })
-vim.keymap.set("n", "<C-Down>", "<C-w>-", { desc = "Decrease pane height" })
-vim.keymap.set("n", "<C-Right>", "<C-w><", { desc = "Decrease pane width" })
-vim.keymap.set("n", "<C-Left>", "<C-w>>", { desc = "Increase pane width" })
+-- vim.keymap.set("n", "<C-Up>", "<C-w>+", { desc = "Increase pane height" })
+-- vim.keymap.set("n", "<C-Down>", "<C-w>-", { desc = "Decrease pane height" })
+-- vim.keymap.set("n", "<C-Right>", "<C-w><", { desc = "Decrease pane width" })
+-- vim.keymap.set("n", "<C-Left>", "<C-w>>", { desc = "Increase pane width" })
 
 -- Equalize pane sizes
 vim.keymap.set("n", "<Leader>=", "<C-w>=", { desc = "Equalize pane sizes" })
@@ -105,7 +105,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<Leader>xd", "<Cmd>lua MiniBracketed.conflict('forward')<CR>", { desc = "jump conflict up" })
 vim.keymap.set("n", "<Leader>xu", "<Cmd>lua MiniBracketed.conflict('backward')<CR>", { desc = "jump conflict down" })
 
--- Tralspace remover
+-- Trial space remover
 vim.keymap.set("n", "<Leader>tr", "<Cmd>lua MiniTrailspace.trim()<CR>", { desc = "Remove tralling spaces " })
 
 -- Useless but cool animation
@@ -135,5 +135,5 @@ vim.keymap.set(
 	{ desc = "Toggle Undotree & focus" }
 )
 
--- Randering Markdown files
+-- Rendering Markdown files
 vim.keymap.set("n", "<leader>am", require("render-markdown").toggle, { desc = "toggle markdown renderings " })
