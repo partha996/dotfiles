@@ -95,7 +95,7 @@ tag_symbol = '🔖 '
 
 [git_status]
 conflicted = '󱃘 [#e64553]'
-ahead = '[󱄟 ](#ca9ee6)'
+ahead = '[󱄟 ++\($count\)](#ca9ee6)'
 behind = '😰'
 diverged = '😵'
 up_to_date = '✓'
