@@ -1,9 +1,11 @@
 #!/bin/bash
+if [[ "$(playerctl status 2>/dev/null)" == "No players found" ]]; then
+    echo "(^. .^)"
 
-if [[ "$(playerctl status)" == "Paused" ]]; then
+elif [[ "$(playerctl status)" == "Paused" ]]; then
     echo "  "
-# elif [[ "$(playerctl status)" == "Playing" ]]; then
-else
+elif [[ "$(playerctl status)" == "Playing" ]]; then
+
     echo "❚❚"
-    # echo "o"
+
 fi

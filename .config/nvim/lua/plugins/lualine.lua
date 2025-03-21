@@ -11,18 +11,23 @@ return {
 		local lsp_name = {
 			function()
 				local clients = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
-				local icon =
-				    require("nvim-web-devicons").get_icon_by_filetype(vim.api.nvim_buf_get_option(0,
-					    "filetype"))
+				-- local icon =
+				--     require("nvim-web-devicons").get_icon_by_filetype(vim.api.nvim_buf_get_option(0,
+				-- 	    "filetype"))
 
 				local names = {}
+				local excluded_lsps = {
+					["null-ls"] = true,
+					["harper_ls"] = true,
+					-- [""] = true,
+				}
 				for _, client in ipairs(clients) do
-					if client.name ~= "null-ls" then -- Exclude null-ls
+					if not excluded_lsps[client.name] then -- Exclude null-ls
 						table.insert(names, client.name)
 					end
 				end
 				if #names > 0 then
-					return string.format("  %s %s", table.concat(names, ", "), icon or "")
+					return string.format("  %s %s", table.concat(names), "")
 				else
 					return "No LSP" -- If no LSP is active
 				end
@@ -41,31 +46,31 @@ return {
 			options = {
 				icons_enable = true,
 				theme = "catppuccin",
-				-- component_separators = { left = '•', right = '•' }, --  ·•
-				section_separators = { left = "", right = "" }, --   
+				-- component_separators = { left = '', right = '' }, --  ·•
+				section_separators = { left = "", right = "" }, --     
 				globalstatus = false,
 				always_show_tabline = true,
 				winbar = { "alpha" },
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch", "diff" },
 				lualine_c = {
 					{ "filename", path = 1 },
 				},
 				lualine_x = {
-					lsp_name,
-					{
-						function()
-							return require("noice").api.statusline.mode.get()
-						end,
-						cond = function()
-							return require("noice").api.statusline.mode.has()
-						end,
-					},
-					"filetype",
+					"diagnostics",
+					-- {
+					-- 	function()
+					-- 		return require("noice").api.statusline.mode.get()
+					-- 	end,
+					-- 	cond = function()
+					-- 		return require("noice").api.statusline.mode.has()
+					-- 	end,
+					-- },
+					-- "filetype",
 				},
-				lualine_y = { "progress" },
+				lualine_y = { lsp_name, "progress" },
 				lualine_z = { "location" },
 			},
 		})

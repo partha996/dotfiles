@@ -5,6 +5,26 @@ return {
 	config = function()
 		require("catppuccin").setup({
 			flavour = "mocha",
+			transparent_background = false,
+			term_colors = true,
+			no_italic = false,
+			no_bold = false,
+			no_underline = false,
+			styles = {
+				comments = { "italic" },
+				conditionals = { "italic" },
+				loops = {},
+				functions = {},
+				keywords = {},
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = { "bold" },
+				properties = {},
+				types = {},
+				operators = {},
+				-- miscs = {}, -- Uncomment to turn off hard-coded styles
+			},
 			integrations = {
 				navic = {
 					enabled = false,
@@ -13,6 +33,10 @@ return {
 				snacks = {
 					enabled = true,
 					indent_scope_color = "lavender",
+				},
+				mini = {
+					enabled = true,
+					indent_scope_color = true,
 				},
 				noice = true,
 				ufo = true,

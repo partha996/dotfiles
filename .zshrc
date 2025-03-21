@@ -28,6 +28,10 @@ export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
 
 # Default editor
 export EDITOR="/bin/nvim"
+export ZDOTDIR="$HOME"
+
+bindkey '^O' clear-screen
+
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -109,6 +113,12 @@ bindkey '^N' history-search-forward
 [ -f ~/.fzf/completion.zsh ] && source ~/.fzf/completion.zsh
 
 # Custom keymaps 
+# function screen_clear{
+# 	clear
+# }
+# zle -N screen_clear
+# bindkey '^O' screen_clear
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -134,7 +144,7 @@ alias zshrc='cd $HOME/dotfiles/ && nvim .zshrc'
 alias src='source /$HOME/dotfiles/.zshrc'
 alias peel='7z x '
 alias bset='brightnessctl set'
-alias wallc='cd /home/partha/scripts/ && ./wallpaperswitcher.sh'
+alias wallc='cd /home/partha/scripts/ && ./wallpaperset.sh'
 alias play='playerctl play-pause'
 alias cx='~/vcode/java/classclear.sh'
 alias bx='~/tempclab/clean.sh'
@@ -148,3 +158,18 @@ alias lg='lazygit'
 alias killNg='cd /home/partha/scripts/ && ./killnightlight.sh'
 alias dinstall='sudo dnf install'
 alias dupdate='sudo dnf update'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gpo='git push origin'
+
+# autoload -U add-zsh-hook
+#
+# fix_bindings() {
+#     bindkey '^O' clear-screen
+# }
+#
+# add-zsh-hook -d precmd fix_bindings
+# add-zsh-hook -d preexec fix_bindings
+# add-zsh-hook -z zshexit fix_bindings
+# fix_bindings

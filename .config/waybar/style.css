@@ -7,7 +7,6 @@
 	min-height: 10px;
 }
 
-
 window#waybar {
 	background: transparent;
 }
@@ -54,17 +53,21 @@ window#waybar {
 }
 
 #custom-fedora {
-	margin-left: 5px;
-	/* padding: 0 10px; */
+	background: #11111b;
+	color: #f5c2e7;
+	margin-left: 0px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	padding-left: 1px;
 	font-size: 20px;
-	transition: color 0.5s;
+	transition: color 0.1s;
 }
 
 #custom-fedora:hover {
 	color: #1793d1;
 }
 
-#custom-fedora,
+/* #custom-fedora, */
 #backlight,
 #battery,
 #bluetooth,
@@ -79,6 +82,7 @@ window#waybar {
 #pulseaudio,
 #tray,
 #workspaces,
+#custom-player,
 #custom-l_end,
 #custom-r_end,
 #custom-sl_end,
@@ -126,25 +130,24 @@ window#waybar {
 }
 
 #custom-notification {
-color: #dc8a78;
+	color: #dc8a78;
 }
 
 #custom-powermenu {
-	color:#dc8a78;
+	color: #dc8a78;
 }
 
 #power-profiles-daemon {
-	color:#40a02b;
+	color: #40a02b;
 }
 
 #pulseaudio {
-color: #8aadf4;
+	color: #8aadf4;
 }
 
 #tray {
 	color: white;
 }
-
 
 #workspaces {
 	padding: 0px;
@@ -184,4 +187,69 @@ color: #8aadf4;
 	border-radius: 7px 0px 0px 7px;
 	margin-left: 9px;
 	padding-left: 3px;
+}
+
+/* #custom-next { */
+/* 	font-family: "FontAwesome"; */
+/* 	background: #11111b; */
+/* 	color: #4FD6B8; */
+/* 	 padding-right: 10px; */ 
+/* 	font-size: 17px; */
+/* 	margin-top: 5px; */
+/* 	margin-bottom: 5px; */
+/* 	border-top-right-radius: 10px; */
+/* 	border-bottom-right-radius: 10px; */
+/* } */
+/**/
+/* #custom-previous { */
+/* 	font-family: "FontAwesome"; */
+/* 	background: #11111b; */
+/* 	color: #4FD6B8; */
+/* 	font-size: 17px; */
+/* 	padding-left: 10px; */
+/* 	margin-top: 5px;  */
+/* 	margin-bottom: 5px; */
+/* 	border-top-left-radius: 10px; */
+/* 	border-bottom-left-radius: 10px; */
+/* } */
+/* #custom-playPause { */
+/* 	font-family: "FontAwesome"; */
+/* 	background: #11111b; */
+/* 	color: #4FD6B8; */
+/* 	font-size: 15px; */
+/* 	margin-top: 5px; */
+/* 	margin-bottom: 5px; */
+/* } */
+#custom-player {
+	font-family: "JetBrainsMono Nerd Font";
+	background: #11111b;
+	font-size: 14px;
+	color:#89B4FB;
+	box-shadow: none;
+	text-shadow: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 0px;
+	/* margin-left: 0px; */
+	padding-right: 5px;
+	/* padding-left: 5px; */
+}
+
+#custom-previous,
+#custom-playPause,
+#custom-next 
+ {
+	font-family: "FontAwesome";
+	background: #11111b;
+	color: #4FD6B8;
+	font-size: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#custom-previous{
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding-left: 8px;
 }
