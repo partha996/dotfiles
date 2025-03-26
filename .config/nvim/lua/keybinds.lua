@@ -2,6 +2,8 @@
 vim.keymap.set("n", "<leader>ws", "<Cmd>w<CR>", { desc = "write into a buffer" })
 vim.keymap.set("n", "<leader>wq", "<Cmd>wq<CR>", { desc = "write & close a buffer" })
 vim.keymap.set("n", "<leader>q", "<Cmd>q<CR>", { desc = "close buffer" })
+vim.keymap.set("n", "<leader>o", "<Cmd>call append(line('.'), '')<CR>", { desc = "add empty line below" })
+vim.keymap.set("n", "<leader>O", "<Cmd>call append(line('.') - 1, '')<CR>", { desc = "add empty line above" })
 
 -- Navigating between windows
 vim.keymap.set("n", "<leader>wh", "<Cmd>wincmd h<CR>", { desc = "foucus rightwin" })
