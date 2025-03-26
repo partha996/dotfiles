@@ -32,6 +32,8 @@ export ZDOTDIR="$HOME"
 
 bindkey '^O' clear-screen
 
+# keybinding for wikiman(ctrl+f)
+source /usr/share/wikiman/widgets/widget.zsh
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
