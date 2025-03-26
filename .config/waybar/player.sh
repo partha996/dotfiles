@@ -1,11 +1,12 @@
 #!/bin/bash
 
 if [[ "$(playerctl status)" == "No players found" ]]; then
-	echo "no player found"
+    echo "no player found"
     exit 0
 fi
-# Get the title and remove " - YouTube Music"
-title=$(playerctl metadata title 2>/dev/null | awk -F ' - (YouTube Music|YouTube)' '{print $1}')
+
+# Get the title and remove unnecessary craps ex- " - YouTube Music"
+title=$(playerctl metadata title 2>/dev/null | sed -E 's/( - (YouTube Music|YouTube)| \(Official Audio\)| \(Official Video\)|\(Official Music Video\))$//')
 
 # Escape special characters for Waybar (e.g., replace & with &amp;)
 title=${title//&/and}
@@ -35,12 +36,20 @@ if [[ -z "$pos" || -z "$len" ]]; then
     echo " "
     exit 0
 fi
-    # Get the current position and length, handling errors
-    timestamps=$(awk '{
+
+# Get the current position and length, handling errors
+timestamps=$(awk '{
   pos = $1;              
   len = $2 / 1000000;            
   printf "(%d:%02d/%d:%02d)\n", pos / 60, pos % 60, len / 60, len % 60;
 }' <(echo "$(playerctl position 2>/dev/null) $(playerctl metadata mpris:length 2>/dev/null)"))
-#  
-    # Output the formatted string
-    echo "󰽱 $title$timestamps"
+
+# Output the formatted string
+player=$(playerctl metadata xesam:url 2>/dev/null)
+if [[ $player == *spotify* ]]; then
+    echo " $title$timestamps"
+elif [[ $player == *youtube* ]]; then
+    echo " $title$timestamps"
+else
+    echo "󰽱$title$timestamps"
+fi
