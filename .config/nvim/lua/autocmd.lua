@@ -1,4 +1,4 @@
--- restore cursor position on file open
+-- Restore cursor position on file open
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*",
 	callback = function()
@@ -20,10 +20,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		})
 	end,
 })
-
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   pattern = "*",
---   callback = function()
---     vim.api.nvim_set_hl(0, "Comment", { fg = "NONE", ctermfg = "NONE", italic = false })
---   end,
--- })
