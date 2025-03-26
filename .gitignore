@@ -1,12 +1,21 @@
-.config/tmux/plugins/
-.config/nvim/lazy-lock.json
-.config/nvim/pluginlist
-.config/nvim/lua/plugins/.extraplugs
 .config/btop/btop.log
 .config/Code/*
 .config/Code/User/History/
 .config/Code/User/globalStorage/
 .config/Code/User/workspaceStorage/
+.config/tmux/plugins/
+.config/nvim/lazy-lock.json
+.config/nvim/pluginlist
+.config/nvim/lua/plugins/.extraplugs
+.config/obs-studio/basic
+.config/obs-studio/log
+.config/obs-studio/plugin_config
+.config/obs-studio/profiler_data
+.config/obs-studio/global.ini
+.config/obs-studio/user.ini
+.config/obs-studio/logs
+!.config/obs-studio/themes/Catppucin.obt
+!.config/obs-studio/themes/Catppucin_Mocha.ovt
 .stow-local-ignore
 
 # Allow tracking of the User directory inside Code
