@@ -18,7 +18,7 @@
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
-    "format-bluetooth": "{icon}{volume}%  {format_source} ",
+    "format-bluetooth": "{icon}{volume}%",
     "format-bluetooth-muted": " {icon} {format_source} ",
     "format-muted": " {format_source} ",
     "format-source": " {volume}%",
@@ -26,7 +26,7 @@
     "format-icons": {
       "headphone": " ",
       "hands-free": " ",
-      "headset": " ",
+      "headset": " ",
       "phone": " ",
       "portable": " ",
       "car": " ",
@@ -35,8 +35,8 @@
     "on-click": "pavucontrol"
   },
   "network": {
-    "Interval": 5,
-    "format-wifi": "  ",
+    "Interval": 3,
+    "format-wifi": "   {bandwidthDownBytes} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": " 󱚵 "
   },
