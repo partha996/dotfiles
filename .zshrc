@@ -74,6 +74,10 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
 zinit light Freed-Wu/fzf-tab-source 
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+
+zinit load 'zsh-users/zsh-history-substring-search'
+zinit ice wait atload'_history_substring_search_config'
 
 # Load completions
 autoload -U compinit && compinit
@@ -107,8 +111,10 @@ stty stop undef # disable ctrl + s
 
 
 # Keybinding for history cycle
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Fzf key bindings and completion
 [ -f ~/.fzf/key-bindings.zsh ] && source ~/.fzf/key-bindings.zsh
@@ -175,4 +181,3 @@ alias hyprpick='hyprpicker -a'
 # add-zsh-hook -d precmd fix_bindings
 # add-zsh-hook -d preexec fix_bindings
 # add-zsh-hook -z zshexit fix_bindings
-# fix_bindings
