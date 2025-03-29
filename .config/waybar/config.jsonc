@@ -43,10 +43,9 @@
     "custom/r_end",
     "custom/l_end",
     "tray",
-    "custom/r_end",
-    "custom/l_end",
+    // "custom/r_end",
+    // "custom/l_end",
     "custom/notification",
-    "custom/powermenu",
     "custom/r_end"
   ],
   // modules for padding //
