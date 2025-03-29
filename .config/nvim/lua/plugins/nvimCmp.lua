@@ -47,11 +47,11 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "render-markdown" },
+					{ name = "nvim_lsp" },
 					{ name = "buffer" },
 					{ name = "path" },
-					{ name = "render-markdown" },
 					{
 						name = "cmdline",
 						option = {
