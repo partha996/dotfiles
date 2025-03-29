@@ -50,6 +50,8 @@ if [[ $player == *spotify* ]]; then
     echo " $title$timestamps"
 elif [[ $player == *youtube* ]]; then
     echo " $title$timestamps"
+elif [[ $player == *instagram* ]]; then
+    echo " "
 else
-    echo "󰽱$title$timestamps"
+    echo "󰽱 $title$timestamps"
 fi
