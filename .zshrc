@@ -9,9 +9,12 @@
 ##░░░░░░░░░░░  ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░   ░░░░░   ░░░░░░░░░  ##
 #####################################################################
 
-# Starship themes                                                       
+# Starship setup                                                       
 eval "$(starship init zsh)"                                             
-                                                                        
+
+# Fuck setup
+eval $(thefuck --alias)                                                                       
+
 # Pokemon art on startup                                                
 pokemon-colorscripts -r                                                 
 
