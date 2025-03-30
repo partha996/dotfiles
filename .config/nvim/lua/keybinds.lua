@@ -138,4 +138,8 @@ vim.keymap.set(
 )
 
 -- Rendering Markdown files
-vim.keymap.set("n", "<leader>am", require("render-markdown").toggle, { desc = "toggle markdown renderings " })
+vim.keymap.set("n", "<leader>am", "<Cmd>Markview.toggle<CR>", { desc = "toggle markdown renderings " })
+
+-- Dubugger 
+vim.keymap.set("n","<leader>dt",require('dap').toggle_breakpoint,{})
+vim.keymap.set("n","<leader>dc",require('dap').continue,{})

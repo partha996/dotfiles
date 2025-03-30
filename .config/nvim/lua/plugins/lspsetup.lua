@@ -21,7 +21,7 @@ return {
 					"taplo",
 					"yamlls",
 					"markdown_oxide",
-					"harper_ls",
+					-- "harper_ls",
 				},
 			})
 		end,
@@ -49,7 +49,7 @@ return {
 			lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.yamlls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.markdown_oxide.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+			-- lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 		end,
 	},
 }
