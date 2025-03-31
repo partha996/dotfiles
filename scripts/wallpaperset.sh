@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wall_path="swww img ~/dotfiles/wallpaper/"
+wall_path="swww img ~/dotfiles/wallpapers/"
 Transition_style="--transition-pos 0.997,0.997 --transition-fps=60 --transition-type=outer"
 declare -A wallpapers=(
 
