@@ -174,6 +174,8 @@ alias ga='git add'
 alias gc='git commit -m'
 alias gpo='git push origin'
 alias hyprpick='hyprpicker -a'
+alias kalbumart='cd /home/partha/.cache/kdeconnect.daemon/kdeconnect/albumart && y'
+alias tmuxdc='tmux detech-client'
 
 # autoload -U add-zsh-hook
 #
