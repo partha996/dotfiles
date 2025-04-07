@@ -46,12 +46,15 @@ timestamps=$(awk '{
 
 # Output the formatted string
 player=$(playerctl metadata xesam:url 2>/dev/null)
+art_url=$(playerctl metadata mpris:artUrl 2>/dev/null)
 if [[ $player == *spotify* ]]; then
     echo " $title$timestamps"
 elif [[ $player == *youtube* ]]; then
     echo " $title$timestamps"
 elif [[ $player == *instagram* ]]; then
     echo " "
-else
+elif [[ $art_url == *kdeconnect* ]]; then
+    echo "  $title$timestamps"
+    elseif
     echo "󰽱 $title$timestamps"
 fi
