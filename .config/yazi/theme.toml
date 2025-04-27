@@ -115,7 +115,30 @@ rules = [
 ]
 
 [icon]
+dirs = [
+	{ name = "downloads", text = "", fg = "#89b4fa" },
+	{ name = "Pictures", text = "", fg = "#89b4fa" },
+	{ name = "videos", text = "", fg = "#89b4fa" },
+	{ name = "sync", text = "󱍸", fg = "#89b4fa" },
+	{ name = "dotfiles", text = "", fg = "#89b4fa" },
+	{ name = "bat", text = "󰭟", fg = "#000000" },
+	{ name = "Code", text = "", fg = "#0078d7" },
+	{ name = "hypr", text = "", fg = "#74c7ec" },
+	{ name = "keyd", text = "", fg = "#7287fd" },
+	{ name = "tmux", text = "", fg = "#a6e3a1" },
+	{ name = "vlc", text = "󰕼", fg = "#fab387" },
+	{ name = "yazi", text = "󰇥", fg = "#FAE766" },
+	{ name = "kitty", text = "󰄛", fg = "#6699CC" },
+	{ name = "nvim", text = "", fg = "#228B22" },
+	{ name = "zathura", text = "", fg = "#a1402b" },
+	{ name = "links", text = "", fg = "#00FFFF" },
+	{ name = "love", text = "", fg = "#ED2939" },
+	{ name = ".ssh", text = "󰣀", fg = "#DEBC4A" },
+	{ name = "scripts", text = "󰯂", fg = "#0C2E2B" },
+
+]
 files = [
+	{ name = "starship.toml", text = "󱓞", fg = "#cba6f7" },
 	{ name = "kritadisplayrc", text = "", fg = "#cba6f7" },
 	{ name = ".gtkrc-2.0", text = "", fg = "#f5e0dc" },
 	{ name = "bspwmrc", text = "", fg = "#313244" },
@@ -639,7 +662,7 @@ exts = [
 	{ name = "pl", text = "", fg = "#74c7ec" },
 	{ name = "ads", text = "", fg = "#f5e0dc" },
 	{ name = "sqlite", text = "", fg = "#f5e0dc" },
-	{ name = "pdf", text = "", fg = "#585b70" },
+	{ name = "pdf", text = "", fg = "#a1402b" },
 	{ name = "pcm", text = "", fg = "#6c7086" },
 	{ name = "ico", text = "", fg = "#f9e2af" },
 	{ name = "a", text = "", fg = "#f5e0dc" },
