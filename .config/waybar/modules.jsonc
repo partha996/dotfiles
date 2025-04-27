@@ -1,8 +1,8 @@
 {
-  "custom/fedora": {
+  "custom/arch": {
     "format": "󰣇 ",
     "tooltip": true,
-    "tooltip-format": "The way life goes",
+    "tooltip-format": "I Use Arch BTW!!",
     "on-click": "hyprsysteminfo"
   },
   "hyprland/workspaces": {
@@ -38,7 +38,7 @@
     "Interval": 3,
     "format-wifi": "   {bandwidthDownBytes} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": " 󱚵 "
+    "format-disconnected": "󱛅  "
   },
   "cpu": {
     "Interval": 3,
@@ -100,7 +100,7 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": " <span foreground='red'><sup></sup></span>",
+      "notification": "󰚶󰍜<span foreground='red'><sup></sup></span>",
       "none": "󰨂󰍜",
       "dnd-notification": "<span foreground='red'><sup></sup></span>",
       "dnd-none": " ",
