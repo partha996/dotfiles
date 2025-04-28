@@ -21,14 +21,6 @@ pokemon-colorscripts -r
 # Path for rust binaries
 export PATH=$PATH:/home/partha/.cargo/bin:/home/partha/.local/bin
 
-# Check that the function `starship_zle-keymap-select()` is defined.
-# xref: https://github.com/starship/starship/issues/3418
-#type starship_zle-keymap-select >/dev/null || \
-#  {
-#    echo "Load starship"
-#    eval "$(/usr/local/bin/starship init zsh)"
-#  }  
-
 # Default editor
 export EDITOR="/bin/nvim"
 export ZDOTDIR="$HOME"
@@ -123,13 +115,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 [ -f ~/.fzf/key-bindings.zsh ] && source ~/.fzf/key-bindings.zsh
 [ -f ~/.fzf/completion.zsh ] && source ~/.fzf/completion.zsh
 
-# Custom keymaps 
-# function screen_clear{
-# 	clear
-# }
-# zle -N screen_clear
-# bindkey '^O' screen_clear
-
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -157,8 +142,6 @@ alias peel='7z x '
 alias bset='brightnessctl set'
 alias wallc='cd /home/partha/dotfiles/scripts/ && ./wallpaperset.sh'
 alias play='playerctl play-pause'
-alias cx='~/vcode/java/classclear.sh'
-alias bx='~/tempclab/clean.sh'
 alias playn='playerctl next'
 alias playp='playerctl previous'
 alias cp='cp -iv'
@@ -174,15 +157,8 @@ alias ga='git add'
 alias gc='git commit -m'
 alias gpo='git push origin'
 alias hyprpick='hyprpicker -a'
-alias kalbumart='cd /home/partha/.cache/kdeconnect.daemon/kdeconnect/albumart && y'
+alias kalbumart='cd /home/partha/.cache/kdeconnect.daemon/kdeconnect/albumart && yazi'
 alias tmuxdc='tmux detech-client'
-
-# autoload -U add-zsh-hook
-#
-# fix_bindings() {
-#     bindkey '^O' clear-screen
-# }
-#
-# add-zsh-hook -d precmd fix_bindings
-# add-zsh-hook -d preexec fix_bindings
-# add-zsh-hook -z zshexit fix_bindings
+alias trash='cd /home/partha/.local/share/Trash/ && yazi'
+alias tas='tmux attach-session -t'
+alias tns='tmux new-session -s'
