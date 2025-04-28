@@ -137,6 +137,14 @@ vim.keymap.set(
 	{ desc = "Toggle Undotree & focus" }
 )
 
+-- Yank the whole buffer
+vim.keymap.set(
+	"n",
+	"<leader>cb",
+	"<Cmd>normal! ggVGy<C-o><CR>",
+	{silent = true}
+)
+
 -- Rendering Markdown files
 vim.keymap.set("n", "<leader>am", "<Cmd>Markview.toggle<CR>", { desc = "toggle markdown renderings " })
 
