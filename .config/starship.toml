@@ -110,34 +110,35 @@ deleted = '[󱕖](#e64553) '
 [line_break]
 disabled = true
 
-# Replace the '❯' symbol in the prompt with '➜'
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[✗](bold red)"
-vimcmd_symbol = "[](italic dimmed green)"
+success_symbol = "[[ ](green) ❯](green)"
+error_symbol = "[[󰋔 ](red) ❯](red)"
+vimcmd_symbol = "[](green)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = false
 
 [directory]
-home_symbol = " "
+home_symbol = ""
 read_only = "  "
 read_only_style = "#7287fd"
 
 [directory.substitutions]
-"documents" = " 󰈙 "
-"downloads" = "  "
-"pictures" = "   "
-"Video" = "   "
-"hypr" = "  "
-"kitty" = " 󰄛 "
-"yazi" = " 󰇥 "
-"tmux" = "  " 
-"nvim" = "  "
-"keyd" = "  "
-"bat" = " 󰭟 "
-"zathura" = "  "
+"documents" = "󰈙 "
+"downloads" = " "
+"pictures" = " "
+"Video" = " "
+"hypr" = " "
+"kitty" = "󰄛 "
+"yazi" = "󰇥 "
+"tmux" = " "
+"nvim" = " "
+"keyd" = " "
+"bat" = "󰭟 "
+"zathura" = " "
+"links" = " "
+"scripts" = "󰯂 "
 
 [battery]
 full_symbol = '🔋 '
@@ -172,5 +173,3 @@ style = "#89B4FB"
 style = '#dd7878'
 
 [sudo]
-symbol = '😈 '
-disabled = false
