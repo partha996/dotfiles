@@ -52,9 +52,9 @@ window#waybar {
 	min-height: 10px;
 }
 
-#custom-fedora {
+#custom-arch {
 	background: #11111b;
-	color: #f5c2e7;
+	color: #1793d1;
 	margin-left: 0px;
 	margin-top: 4px;
 	margin-bottom: 4px;
@@ -63,11 +63,7 @@ window#waybar {
 	transition: color 0.1s;
 }
 
-#custom-fedora:hover {
-	color: #1793d1;
-}
-
-/* #custom-fedora, */
+/* #custom-arch, */
 #backlight,
 #battery,
 #bluetooth,
@@ -193,7 +189,7 @@ window#waybar {
 /* 	font-family: "FontAwesome"; */
 /* 	background: #11111b; */
 /* 	color: #4FD6B8; */
-/* 	 padding-right: 10px; */ 
+/* 	 padding-right: 10px; */
 /* 	font-size: 17px; */
 /* 	margin-top: 5px; */
 /* 	margin-bottom: 5px; */
@@ -224,7 +220,7 @@ window#waybar {
 	font-family: "JetBrainsMono Nerd Font";
 	background: #11111b;
 	font-size: 14px;
-	color:#89B4FB;
+	color: #f38ba8;
 	box-shadow: none;
 	text-shadow: none;
 	border-top-right-radius: 10px;
@@ -239,16 +235,16 @@ window#waybar {
 
 #custom-previous,
 #custom-playPause,
-#custom-next 
- {
+#custom-next {
 	font-family: "FontAwesome";
 	background: #11111b;
-	color: #4FD6B8;
+	color: #4fd6b8;
 	font-size: 15px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-#custom-previous{
+
+#custom-previous {
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	padding-left: 8px;
