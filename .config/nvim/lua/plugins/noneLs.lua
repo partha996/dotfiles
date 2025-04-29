@@ -14,7 +14,7 @@ return {
 				"prettier",
 				"google_java_format",
 				"clang_format",
-				"yamlfix"
+				"yamlfix",
 			},
 		})
 		local null_ls = require("null-ls")
@@ -22,7 +22,8 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.completion.spell,
+				-- https://www.reddit.com/r/neovim/comments/v2ifpb/text_fields_on_lsp_auto_completion/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+				-- null_ls.builtins.completion.spell,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.google_java_format,
