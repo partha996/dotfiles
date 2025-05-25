@@ -113,7 +113,7 @@ disabled = true
 [character]
 success_symbol = "[[ ](green) ❯](green)"
 error_symbol = "[[󰋔 ](red) ❯](red)"
-vimcmd_symbol = "[](green)"
+vimcmd_symbol = "[[ ](green) ❯](green)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
