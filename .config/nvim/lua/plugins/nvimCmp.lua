@@ -50,8 +50,8 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "render-markdown" },
+					{ name = "buffer" },
 					{ name = "path" },
-					-- { name = "buffer" },
 					{
 						name = "cmdline",
 						option = {
