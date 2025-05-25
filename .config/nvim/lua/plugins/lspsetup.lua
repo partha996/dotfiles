@@ -21,6 +21,8 @@ return {
 					"taplo",
 					"yamlls",
 					"markdown_oxide",
+					"ts_ls"
+					-- "java-language-server",
 					-- "harper_ls",
 				},
 			})
@@ -38,7 +40,6 @@ return {
 				end
 			end
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.jdtls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
@@ -49,7 +50,21 @@ return {
 			lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.yamlls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.markdown_oxide.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 			-- lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					lua = {
+						workspace = {
+							library = {
+								"${3rd}/love2d/library",
+							},
+						},
+					},
+				},
+			})
 		end,
 	},
 }
