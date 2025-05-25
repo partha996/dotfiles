@@ -4,6 +4,7 @@ vim.keymap.set("n", "<leader>wq", "<Cmd>wq<CR>", { desc = "write & close a buffe
 vim.keymap.set("n", "<leader>q", "<Cmd>q<CR>", { desc = "close buffer" })
 vim.keymap.set("n", "<leader>o", "<Cmd>call append(line('.'), '')<CR>", { desc = "add empty line below" })
 vim.keymap.set("n", "<leader>O", "<Cmd>call append(line('.') - 1, '')<CR>", { desc = "add empty line above" })
+vim.keymap.set("n", "<leader>j", '"_d', { desc = "permanently delete motion" })
 
 -- Navigating between windows
 vim.keymap.set("n", "<leader>wh", "<Cmd>wincmd h<CR>", { desc = "foucus rightwin" })
@@ -26,52 +27,86 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>cs", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<leader>mp", vim.lsp.buf.format, {})
 
+-- Yank the whole buffer
+vim.keymap.set("n", "<leader>cb", "<Cmd>normal! ggVGy<C-o><CR>", { silent = true })
+
+-- Delete buffer from the memory
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Delete current buffer" })
+
+-- Diagnostic jumps
+vim.keymap.set("n", "<leader>du", function()
+	vim.diagnostic.goto_prev({ float = false })
+end, { desc = "Go to previous diagnostic without popup" })
+
+vim.keymap.set("n", "<leader>dd", function()
+	vim.diagnostic.goto_next({ float = false })
+end, { desc = "Go to next diagnostic without popup" })
+
 -- Snacks keybinds
 vim.keymap.set("n", "<leader>lg", function()
 	require("snacks").lazygit()
 end, { desc = "lazygit" })
+
 vim.keymap.set("n", "<leader>gz", function()
 	require("snacks").gitbrowse()
 end, { desc = "gitbrowser" })
+
 vim.keymap.set("n", "<leader>un", function()
 	require("snacks").notifier.hide()
 end, { desc = "hide notifications" })
+
 vim.keymap.set("n", "<leader>gb", function()
 	require("snacks").git.blame_line()
 end, { desc = "git blame" })
+
 vim.keymap.set("n", "<leader>rb", function()
 	require("snacks").rename.rename_file()
 end, { desc = "reaname current buffer" })
-vim.keymap.set("n", "<leader>ts", function()
-	require("snacks").picker.treesitter({ layout = "ivy" })
+
+vim.keymap.set("n", "<leader>sl", function()
+	require("snacks").picker.lsp_symbols({ layout = "right" })
 end, { desc = "treesitter" })
+
 vim.keymap.set("n", "<leader>ff", function()
 	require("snacks").picker.files()
 end, { desc = "file picker" })
+
 vim.keymap.set("n", "<leader>zf", function()
 	require("snacks").picker.zoxide()
 end, { desc = "zoxide search " })
+
 vim.keymap.set("n", "<leader>sb", function()
 	require("snacks").picker.buffers()
 end, { desc = "find open buffers" })
+
 vim.keymap.set("n", "<leader>rg", function()
 	require("snacks").picker.registers()
 end, { desc = "registers" })
+
 vim.keymap.set("n", "<leader>ch", function()
 	require("snacks").picker.command_history({ layout = "select" })
 end, { desc = "command history" })
+
 vim.keymap.set("n", "<leader>ms", function()
 	require("snacks").picker.man()
 end, { desc = "man pages" })
+
 vim.keymap.set("n", "<leader>kp", function()
 	require("snacks").picker.keymaps({ layout = "ivy" })
 end, { desc = "keymaps picker" })
+
 vim.keymap.set("n", "<leader>up", function()
 	require("snacks").picker.undo({ layout = "ivy" })
 end, { desc = "change history recorder" })
+
 vim.keymap.set("n", "<leader>ss", function()
 	require("snacks").picker.spelling({ layout = "select" })
 end, { desc = "word picker" })
+
+vim.keymap.set("n", "<leader>sm", function()
+	require("snacks").picker.marks()
+end, { desc = "marks" })
+
 
 -- Make current buffer executable
 vim.keymap.set("n", "<leader>mx", "<Cmd>!chmod +x %<CR>", { desc = "make file executable" })
@@ -95,14 +130,6 @@ vim.keymap.set("n", "<Leader>=", "<C-w>=", { desc = "Equalize pane sizes" })
 -- MiniBracketed jumps
 vim.keymap.set("n", "<leader>cd", "<Cmd>lua MiniBracketed.comment('forward')<CR>", { desc = "jump up comment" })
 vim.keymap.set("n", "<leader>cu", "<Cmd>lua MiniBracketed.comment('backward')<CR>", { desc = "jump down comment" })
-
-vim.keymap.set("n", "<Leader>dd", "<Cmd>lua MiniBracketed.diagnostic('forward')<CR>", { desc = "jump up diagnostics" })
-vim.keymap.set(
-	"n",
-	"<leader>du",
-	"<Cmd>lua MiniBracketed.diagnostic('backward')<CR>",
-	{ desc = "jump down diagnostics" }
-)
 
 vim.keymap.set("n", "<Leader>xd", "<Cmd>lua MiniBracketed.conflict('forward')<CR>", { desc = "jump conflict up" })
 vim.keymap.set("n", "<Leader>xu", "<Cmd>lua MiniBracketed.conflict('backward')<CR>", { desc = "jump conflict down" })
@@ -137,17 +164,9 @@ vim.keymap.set(
 	{ desc = "Toggle Undotree & focus" }
 )
 
--- Yank the whole buffer
-vim.keymap.set(
-	"n",
-	"<leader>cb",
-	"<Cmd>normal! ggVGy<C-o><CR>",
-	{silent = true}
-)
-
 -- Rendering Markdown files
-vim.keymap.set("n", "<leader>am", "<Cmd>Markview.toggle<CR>", { desc = "toggle markdown renderings " })
+vim.keymap.set("n", "<leader>am", "<Cmd>Markview Toggle<CR>", { desc = "toggle markdown renderings " })
 
--- Dubugger 
-vim.keymap.set("n","<leader>dt",require('dap').toggle_breakpoint,{})
-vim.keymap.set("n","<leader>dc",require('dap').continue,{})
+-- Debugger
+vim.keymap.set("n", "<leader>dt", require("dap").toggle_breakpoint, {})
+vim.keymap.set("n", "<leader>dc", require("dap").continue, {})
