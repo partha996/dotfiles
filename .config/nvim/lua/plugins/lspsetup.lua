@@ -21,9 +21,8 @@ return {
 					"taplo",
 					"yamlls",
 					"markdown_oxide",
-					"ts_ls"
+					"ts_ls",
 					-- "java-language-server",
-					-- "harper_ls",
 				},
 			})
 		end,
@@ -32,31 +31,24 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local navic = require("nvim-navic")
-			local function on_attach(client, bufnr)
-				if client.server_capabilities.documentSymbolProvider then
-					navic.attach(client, bufnr)
-				end
-			end
 			local lspconfig = require("lspconfig")
-			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.jdtls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.cssls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.html.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.jsonls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.yamlls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.markdown_oxide.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
-			-- lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.clangd.setup({})
+			lspconfig.jdtls.setup({})
+			lspconfig.bashls.setup({})
+			lspconfig.cssls.setup({})
+			lspconfig.html.setup({})
+			lspconfig.jsonls.setup({})
+			lspconfig.pylsp.setup({})
+			lspconfig.taplo.setup({})
+			lspconfig.yamlls.setup({})
+			lspconfig.markdown_oxide.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
 				settings = {
-					lua = {
+					Lua = {
+						diagnostics = {
+							globals = { "love" },
+						},
 						workspace = {
 							library = {
 								"${3rd}/love2d/library",
