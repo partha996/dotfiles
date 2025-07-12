@@ -18,8 +18,8 @@
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
-    "format-bluetooth": "{icon}{volume}%",
-    "format-bluetooth-muted": " {icon} {format_source} ",
+    "format-bluetooth": "{icon}{volume}% ",
+    "format-bluetooth-muted": " {icon}{format_source} ",
     "format-muted": " {format_source} ",
     "format-source": " {volume}%",
     "format-source-muted": " ",
@@ -36,7 +36,7 @@
   },
   "network": {
     "Interval": 3,
-    "format-wifi": "   {bandwidthDownBytes} ",
+    "format-wifi": "  ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󱛅  "
   },
@@ -47,7 +47,7 @@
   },
   "memory": {
     "Interval": 2,
-    "format": " {used:0.1f}G",
+    "format": " {used:0.1f}G",
     "tooltip": true
   },
   "temperature": {
@@ -64,10 +64,10 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}% ",
+    "format": "{icon} {capacity}%",
     "format-full": " {icon} {capacity}%",
-    "format-charging": " {capacity}% ",
-    "format-plugged": "  {capacity}% ",
+    "format-charging": " {capacity}%",
+    "format-plugged": "  {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁾", "󰂀", "󰂁", "󰂂", "󱈑"]
   },
@@ -126,11 +126,11 @@
     "on-click-middle": "playerctl previous"
   },
   "custom/next": {
-    "format": " ↪ ",
+    "format": "󰒭",
     "on-click": "playerctl next"
   },
   "custom/previous": {
-    "format": "↩ ",
+    "format": "󰒮",
     "on-click": "playerctl previous"
   },
   "custom/playPause": {
