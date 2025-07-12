@@ -5,8 +5,8 @@ return {
 	config = function()
 		require("catppuccin").setup({
 			flavour = "mocha",
-			transparent_background = false,
-			term_colors = true,
+			transparent_background = true,
+			term_colors = false,
 			no_italic = false,
 			no_bold = false,
 			no_underline = false,
@@ -26,10 +26,6 @@ return {
 				-- miscs = {}, -- Uncomment to turn off hard-coded styles
 			},
 			integrations = {
-				navic = {
-					enabled = false,
-					custom_bg = "NONE",
-				},
 				snacks = {
 					enabled = true,
 					indent_scope_color = "lavender",
@@ -42,7 +38,6 @@ return {
 				ufo = true,
 				beacon = true,
 				flash = true,
-				cmp = true,
 				mason = true,
 				rainbow_delimiters = true,
 				render_markdown = true,
@@ -71,6 +66,6 @@ return {
 			},
 		})
 
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }
