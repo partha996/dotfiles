@@ -1,66 +1,71 @@
+@import "/home/partha/.cache/wal/colors-waybar.css";
+
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color textcolor @cursor;
+
 * {
-	border: none;
-	border-radius: 0px;
-	font-family: "JetBrainsMono Nerd Font";
-	font-weight: bold;
-	font-size: 15px;
-	min-height: 10px;
+  border: none;
+  border-radius: 0px;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-weight: bold;
+  font-size: 15px;
+  min-height: 10px;
 }
 
 window#waybar {
-	background: transparent;
+  background: transparent;
 }
 
 #workspaces button {
-	box-shadow: none;
-	text-shadow: none;
-	padding: 0px;
-	border-radius: 9px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-	margin-left: 0px;
-	padding-left: 3px;
-	padding-right: 3px;
-	margin-right: 0px;
-	color: #cdd6f4;
-	animation: ws_normal 20s ease-in-out 1;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 0px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 0px;
+  color: @color1;
+  animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
-	background: #cba6f7;
-	color: #313244;
-	margin-left: 3px;
-	padding-left: 12px;
-	padding-right: 12px;
-	margin-right: 3px;
-	animation: ws_active 20s ease-in-out 1;
-	transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  background: @cursor;
+  color: @color0;
+  margin-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 3px;
+  animation: ws_active 20s ease-in-out 1;
+  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button:hover {
-	background: #f5c2e7;
-	color: #313244;
-	animation: ws_hover 20s ease-in-out 1;
-	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  background: @cursor;
+  color: #313244;
+  animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #tray menu * {
-	min-height: 16px;
+  min-height: 16px;
 }
 
 #tray menu separator {
-	min-height: 10px;
+  min-height: 10px;
 }
 
 #custom-arch {
-	background: #11111b;
-	color: #1793d1;
-	margin-left: 0px;
-	margin-top: 4px;
-	margin-bottom: 4px;
-	padding-left: 1px;
-	font-size: 20px;
-	transition: color 0.1s;
+  background: @background;
+  color: #1793d1;
+  margin-left: 0px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 1px;
+  transition: color 0.1s;
 }
 
 /* #custom-arch, */
@@ -85,167 +90,130 @@ window#waybar {
 #custom-sr_end,
 #custom-rl_end,
 #custom-rr_end {
-	/* color: #cdd6f4; */
-	background: #11111b;
-	opacity: 1;
-	margin: 4px 0px 4px 0px;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-#custom-fedora {
-	color: rgb(80, 163, 219);
+  /* color: #cdd6f4; */
+  background: @background;
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 #backlight {
-	color: #8aadf4;
+  color: @color4;
 }
 
 #battery {
-	color: #8aadf4;
+  color: @color4;
 }
 
 #clock {
-	color: #7287fd;
+  color: @color5;
 }
 
 #cpu {
-	color: #89dceb;
+  color: @color6;
 }
 
 #memory {
-	color: #89dceb;
+  color: @color6;
 }
 
 #temperature {
-	color: #89dceb;
+  color: @color6;
 }
 
 #network {
-	color: #8aadf4;
+  color: @color4;
 }
 
 #custom-notification {
-	color: #dc8a78;
+  color: @color4;
 }
 
 #custom-powermenu {
-	color: #dc8a78;
+  color: @color11;
 }
 
 #power-profiles-daemon {
-	color: #40a02b;
+  color: @color12;
 }
 
 #pulseaudio {
-	color: #8aadf4;
+  color: @color4;
 }
 
 #tray {
-	color: white;
+  color: @color4;
 }
 
 #workspaces {
-	padding: 0px;
+  padding: 0px;
 }
 
 #custom-r_end {
-	border-radius: 0px 21px 21px 0px;
-	margin-right: 8px;
-	padding-right: 1px;
+  border-radius: 0px 21px 21px 0px;
+  margin-right: 8px;
+  padding-right: 1px;
 }
 
 #custom-l_end {
-	border-radius: 21px 0px 0px 21px;
-	margin-left: 9px;
-	padding-left: 1px;
+  border-radius: 21px 0px 0px 21px;
+  margin-left: 9px;
+  padding-left: 1px;
 }
 
 #custom-sr_end {
-	border-radius: 0px;
-	margin-right: 9px;
-	padding-right: 3px;
+  border-radius: 0px;
+  margin-right: 9px;
+  padding-right: 3px;
 }
 
 #custom-sl_end {
-	border-radius: 0px;
-	margin-left: 9px;
-	padding-left: 3px;
+  border-radius: 0px;
+  margin-left: 9px;
+  padding-left: 3px;
 }
 
 #custom-rr_end {
-	border-radius: 0px 7px 7px 0px;
-	margin-right: 9px;
-	padding-right: 3px;
+  border-radius: 0px 7px 7px 0px;
+  margin-right: 9px;
+  padding-right: 3px;
 }
 
 #custom-rl_end {
-	border-radius: 7px 0px 0px 7px;
-	margin-left: 9px;
-	padding-left: 3px;
+  border-radius: 7px 0px 0px 7px;
+  margin-left: 9px;
+  padding-left: 3px;
 }
 
-/* #custom-next { */
-/* 	font-family: "FontAwesome"; */
-/* 	background: #11111b; */
-/* 	color: #4FD6B8; */
-/* 	 padding-right: 10px; */
-/* 	font-size: 17px; */
-/* 	margin-top: 5px; */
-/* 	margin-bottom: 5px; */
-/* 	border-top-right-radius: 10px; */
-/* 	border-bottom-right-radius: 10px; */
-/* } */
-/**/
-/* #custom-previous { */
-/* 	font-family: "FontAwesome"; */
-/* 	background: #11111b; */
-/* 	color: #4FD6B8; */
-/* 	font-size: 17px; */
-/* 	padding-left: 10px; */
-/* 	margin-top: 5px;  */
-/* 	margin-bottom: 5px; */
-/* 	border-top-left-radius: 10px; */
-/* 	border-bottom-left-radius: 10px; */
-/* } */
-/* #custom-playPause { */
-/* 	font-family: "FontAwesome"; */
-/* 	background: #11111b; */
-/* 	color: #4FD6B8; */
-/* 	font-size: 15px; */
-/* 	margin-top: 5px; */
-/* 	margin-bottom: 5px; */
-/* } */
 #custom-player {
-	font-family: "JetBrainsMono Nerd Font";
-	background: #11111b;
-	font-size: 14px;
-	color: #f38ba8;
-	box-shadow: none;
-	text-shadow: none;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-right: 0px;
-	/* margin-left: 0px; */
-	padding-right: 5px;
-	/* padding-left: 5px; */
+  font-family: "JetBrainsMono Nerd Font";
+  background: @background;
+  font-size: 14px;
+  color: @color14;
+  box-shadow: none;
+  text-shadow: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 #custom-previous,
 #custom-playPause,
 #custom-next {
-	font-family: "FontAwesome";
-	background: #11111b;
-	color: #4fd6b8;
-	font-size: 15px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+  background: @background;
+  color: @color14;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #custom-previous {
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	padding-left: 8px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 8px;
 }
