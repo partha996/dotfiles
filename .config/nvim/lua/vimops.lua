@@ -9,8 +9,16 @@ vim.opt.syntax = "off"
 vim.opt.signcolumn = "yes"
 vim.o.updatetime = 100
 vim.opt.relativenumber = true
+vim.opt.updatetime = 500
+vim.opt.timeoutlen = 500
 vim.opt.cmdheight = 0
-vim.api.nvim_set_hl(0, "Comment", {italic = true })
+vim.opt.scrolloff = 10
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.cache/nvim/undodir")
+vim.opt.iskeyword:append("-")
+vim.opt.encoding = "UTF_8"
+vim.opt.guicursor ="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.api.nvim_set_hl(0, "Comment", { italic = true })
 -- Normal mode: Delete character under cursor without affecting clipboard
 vim.keymap.set("n", "x", '"_x', { noremap = true })
 
