@@ -9,6 +9,8 @@
 ##░░░░░░░░░░░  ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░   ░░░░░   ░░░░░░░░░  ##
 #####################################################################
 
+source ~/.cache/wal/colors.sh
+
 # Starship setup                                                       
 eval "$(starship init zsh)"                                             
 
@@ -33,13 +35,13 @@ source /usr/share/wikiman/widgets/widget.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# Fzf theme(catppuccin)
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---multi"
+# # Fzf theme(catppuccin)
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+# --color=selected-bg:#45475a \
+# --multi"
 
 
 ### Added by Zinit's installer
@@ -133,6 +135,8 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 # Aliases
 alias ls='lsd'  
 alias nv='nvim'
+alias offf='sudo systemctl poweroff'
+alias hyprln='cd ~/dotfiles/.config/hypr/ && sh hyprlaunch.sh'
 alias hyprco='cd ~/dotfiles/.config/hypr/ && nvim hyprland.conf'
 alias keyco='cd ~/dotfiles/.config/hypr/ && nvim keybinds.conf'
 alias poinfo='sudo tlp-stat -b'
@@ -149,7 +153,6 @@ alias rm='rm -v'
 alias mv='mv -v'
 alias kdec='kdeconnect-cli' 
 alias lg='lazygit'
-alias killNg='cd /home/partha/scripts/ && ./killnightlight.sh'
 alias pinstall='sudo pacman -S'
 alias pupdate='sudo pacman -Syu'
 alias gs='git status'
@@ -162,5 +165,7 @@ alias tmuxdc='tmux detech-client'
 alias trash='cd /home/partha/.local/share/Trash/ && yazi'
 alias tas='tmux attach-session -t'
 alias tns='tmux new-session -s'
-alias btcontws='bluetoothctl connect 64:72:D8:F9:76:FB'
+alias bconori='bluetoothctl connect 64:72:D8:F9:76:FB'
+alias bcontws='bluetoothctl connect B0:38:E2:75:33:C2' 
 alias btconsp='bluetoothctl connect 06:F2:4E:2D:0C:E4'
+alias wallpaperswitch='cd ~/dotfiles/wallpapers/ && wal -i $(for a in *; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -theme ~/dotfiles/.config/rofi/wal.rasi -dmenu) && sh ~/dotfiles/scripts/autoRofiConUpate.sh'
