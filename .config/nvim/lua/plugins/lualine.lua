@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local mode = {
 			"mode",
@@ -8,41 +8,8 @@ return {
 				return " " .. str
 			end,
 		}
-		local lsp_name = {
-			function()
-				local clients = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
-				-- local icon =
-				--     require("nvim-web-devicons").get_icon_by_filetype(vim.api.nvim_buf_get_option(0,
-				-- 	    "filetype"))
-
-				local names = {}
-				local excluded_lsps = {
-					["null-ls"] = true,
-					["harper_ls"] = true,
-					-- [""] = true,
-				}
-				for _, client in ipairs(clients) do
-					if not excluded_lsps[client.name] then -- Exclude null-ls
-						table.insert(names, client.name)
-					end
-				end
-				if #names > 0 then
-					return string.format("  %s %s", table.concat(names), "")
-				else
-					return "No LSP" -- If no LSP is active
-				end
-			end,
-			color = function()
-				local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
-					vim.api.nvim_buf_get_option(0, "filetype")
-				)
-				return { fg = color }
-			end,
-			on_click = function()
-				vim.api.nvim_command("LspInfo")
-			end,
-		}
 		require("lualine").setup({
+			extensions = { "quickfix", "trouble", "mason", "lazy" },
 			options = {
 				icons_enable = true,
 				theme = "catppuccin",
@@ -54,23 +21,44 @@ return {
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = { "branch", "diff" },
+				lualine_b = { "branch", { "diff", symbols = { added = " ", modified = " ", removed = " " } } },
 				lualine_c = {
-					{ "filename", path = 1 },
+					{
+						"filename",
+						symbols = {
+							modified = "●",
+							readonly = "󰌾",
+							unnamed = "[No Name]",
+							newfile = "[New]",
+						},
+						path = 1,
+					},
 				},
 				lualine_x = {
-					"diagnostics",
-					-- {
-					-- 	function()
-					-- 		return require("noice").api.statusline.mode.get()
-					-- 	end,
-					-- 	cond = function()
-					-- 		return require("noice").api.statusline.mode.has()
-					-- 	end,
-					-- },
-					-- "filetype",
+					{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰖷 " } },
+					{
+						require("noice").api.status.command.get,
+						cond = require("noice").api.status.command.has,
+						color = { fg = "#ff9e64" },
+					},
 				},
-				lualine_y = { lsp_name, "progress" },
+				lualine_y = {
+					{
+						"lsp_status",
+						icon = " ", -- f013
+						symbols = {
+							-- Standard unicode symbols to cycle through for LSP progress:
+							spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+							-- Standard unicode symbol for when LSP is done:
+							done = "",
+							-- Delimiter inserted between LSP names:
+							separator = " ",
+						},
+						ignore_lsp = {},
+					},
+
+					"progress",
+				},
 				lualine_z = { "location" },
 			},
 		})
