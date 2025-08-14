@@ -77,7 +77,7 @@
 				},
 				{
 					"label": " 󰸉 ",
-					"command": "/home/partha/scripts/wallpaperset.sh"
+					"command": "/home/partha/scripts/swayncWallSwitch.sh"
 				}
 			]
 		}
