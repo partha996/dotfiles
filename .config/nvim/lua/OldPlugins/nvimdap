@@ -1,0 +1,54 @@
+return {
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
+		"theHamsta/nvim-dap-virtual-text",
+		"jay-babu/mason-nvim-dap.nvim",
+	},
+	config = function()
+		require("mason-nvim-dap").setup({
+			ensure_installed = {
+				"codelldb",
+				"debugpy",
+				"java-debug-adapter",
+				"local-lua-debugger",
+			},
+			automatic_setup = true,
+			handlers = {
+				function(config)
+					require("mason-nvim-dap").default_setup(config) -- don't forget this
+				end,
+			},
+		})
+		local dap, dapui = require("dap"), require("dapui")
+		dapui.setup()
+
+		-- Automatically open/close DAP UI
+		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+		dap.listeners.before.event_exited["dapui_config"] = dapui.close
+
+		require("nvim-dap-virtual-text").setup()
+
+		dap.adapters.lldb = {
+			type = "executable",
+			command = "/home/partha/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+			name = "lldb",
+		}
+		dap.configurations.cpp = {
+			{
+				name = "Launch",
+				type = "lldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = {},
+			},
+		}
+		dap.configurations.c = dap.configurations.cpp
+	end,
+}

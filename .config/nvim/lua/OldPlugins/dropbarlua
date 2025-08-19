@@ -1,0 +1,181 @@
+return {
+	"Bekaboo/dropbar.nvim",
+	dependencies = {
+		"nvim-telescope/telescope-fzf-native.nvim",
+	},
+
+	config = function()
+		require("dropbar").setup({
+			icons = {
+
+				kinds = {
+					symbols = {
+						Array = "󰅪 ",
+						BlockMappingPair = "󰅩 ",
+						Boolean = " ",
+						BreakStatement = "󰙧 ",
+						Call = "󰃷 ",
+						CaseStatement = "󱃙 ",
+						Class = "󰠱 ",
+						Color = "󰏘 ",
+						Constant = "󰏿 ",
+						Constructor = " ",
+						ContinueStatement = "→ ",
+						Copilot = " ",
+						Declaration = "󰙠 ",
+						Delete = "󰩺 ",
+						DoStatement = "󰑖 ",
+						Element = "󰅩 ",
+						Enum = " ",
+						EnumMember = " ",
+						Event = " ",
+						Field = " ",
+						File = "󰈔 ",
+						Folder = "󰉋 ",
+						ForStatement = "󰑖 ",
+						Function = "󰡱 ",
+						GotoStatement = "󰁔 ",
+						Identifier = "󰀫 ",
+						IfStatement = "󰇉 ",
+						Interface = " ",
+						Keyword = "󰌋 ",
+						List = "󰅪 ",
+						Log = "󰦪 ",
+						Lsp = " ",
+						Macro = "󰁌 ",
+						MarkdownH1 = "󰉫 ",
+						MarkdownH2 = "󰉬 ",
+						MarkdownH3 = "󰉭 ",
+						MarkdownH4 = "󰉮 ",
+						MarkdownH5 = "󰉯 ",
+						MarkdownH6 = "󰉰 ",
+						Method = "󰆧 ",
+						Module = "󰏗 ",
+						Namespace = "󰅩 ",
+						Null = "󰢤 ",
+						Number = "󰎠 ",
+						Object = "󰅩 ",
+						Operator = "󰆕 ",
+						Package = "󰆦 ",
+						Pair = "󰅪 ",
+						Property = " ",
+						Reference = "󰦾 ",
+						Regex = " ",
+						Repeat = "󰑖 ",
+						Return = "󰌑 ",
+						RuleSet = "󰅩 ",
+						Scope = "󰅩 ",
+						Section = "󰅩 ",
+						Snippet = "󰩫 ",
+						Specifier = "󰦪 ",
+						Statement = "󰅩 ",
+						String = "󰉾 ",
+						Struct = " ",
+						SwitchStatement = "󰺟 ",
+						Table = "󰅩 ",
+						Terminal = " ",
+						Text = " ",
+						Type = " ",
+						TypeParameter = "󰆩 ",
+						Unit = " ",
+						Value = "󰎠 ",
+						Variable = "󰀫 ",
+						WhileStatement = "󰑖 ",
+					},
+				},
+				ui = {
+					bar = {
+						separator = " > ",
+						extends = "..",
+					},
+				},
+			},
+		})
+
+		local colors = require("catppuccin.palettes").get_palette()
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindFile", { fg = colors.blue, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindFile", { fg = colors.blue, bg = "NONE" })
+
+		-- Module, Namespace, Package
+		vim.api.nvim_set_hl(0, "DropBarIconKindModule", { fg = colors.mauve, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindModule", { fg = colors.mauve, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindNamespace", { fg = colors.sapphire, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindNamespace", { fg = colors.sapphire, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindPackage", { fg = colors.lavender, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindPackage", { fg = colors.lavender, bg = "NONE" })
+
+		-- Class, Method, Property, Field, Constructor
+		vim.api.nvim_set_hl(0, "DropBarIconKindClass", { fg = colors.yellow, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindClass", { fg = colors.yellow, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindMethod", { fg = colors.blue, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindMethod", { fg = colors.blue, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindProperty", { fg = colors.green, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindProperty", { fg = colors.green, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindField", { fg = colors.teal, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindField", { fg = colors.teal, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindConstructor", { fg = colors.sapphire, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindConstructor", { fg = colors.sapphire, bg = "NONE" })
+
+		-- Enum, EnumMember, Interface, Constant, etc.
+		vim.api.nvim_set_hl(0, "DropBarIconKindEnum", { fg = colors.yellow, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindEnum", { fg = colors.yellow, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindEnumMember", { fg = colors.red, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindEnumMember", { fg = colors.red, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindInterface", { fg = colors.peach, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindInterface", { fg = colors.peach, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindConstant", { fg = colors.peach, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindConstant", { fg = colors.peach, bg = "NONE" })
+
+		-- Function, Variable, String, Number, Boolean, Array, Object, Key, Keyword, Operator, Event
+		vim.api.nvim_set_hl(0, "DropBarIconKindFunction", { fg = colors.blue, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindFunction", { fg = colors.blue, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindVariable", { fg = colors.peach, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindVariable", { fg = colors.peach, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindString", { fg = colors.green, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindString", { fg = colors.green, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindNumber", { fg = colors.peach, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindNumber", { fg = colors.peach, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindBoolean", { fg = colors.red, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindBoolean", { fg = colors.red, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindArray", { fg = colors.yellow, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindArray", { fg = colors.yellow, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindObject", { fg = colors.sky, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindObject", { fg = colors.sky, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindKey", { fg = colors.pink, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindKey", { fg = colors.pink, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindKeyword", { fg = colors.mauve, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindKeyword", { fg = colors.mauve, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindOperator", { fg = colors.lavender, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindOperator", { fg = colors.lavender, bg = "NONE" })
+
+		vim.api.nvim_set_hl(0, "DropBarIconKindEvent", { fg = colors.teal, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarKindEvent", { fg = colors.teal, bg = "NONE" })
+
+		-- Separator / context
+		vim.api.nvim_set_hl(0, "DropBarSeparator", { fg = colors.overlay1, bg = "NONE" })
+		vim.api.nvim_set_hl(0, "DropBarCurrentContext", { fg = colors.text, bg = "NONE", bold = true })
+
+		-- Menu float window
+		vim.api.nvim_set_hl(0, "DropBarMenuNormalFloat", { bg = colors.base }) -- optional
+		vim.api.nvim_set_hl(0, "DropBarMenuFloatBorder", { fg = colors.mauve, bg = colors.base })
+	end,
+}
