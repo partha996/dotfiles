@@ -49,36 +49,36 @@ vim.api.nvim_create_autocmd("CmdLineLeave", {
 	end,
 })
 
--- --Toggle relative & absolute line numbers on window enter & leave
--- vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		local is_entering = args.event == "WinEnter"
--- 		vim.opt.relativenumber = is_entering
--- 	end,
--- })
---
--- --Toggle relative & absolute line numbers on inser mode enter & leave
--- vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		local is_in_insert = args.event == "InsertLeave"
--- 		vim.opt_local.relativenumber = is_in_insert
--- 	end,
--- })
---
--- --Toggle relative & absolute line numbers on focus enter & leave
--- vim.api.nvim_create_autocmd({ "FocusLost", "FocusGained" }, {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		local is_focused = args.event
--- 		if args.event == "FocusLost" then
--- 			vim.opt.relativenumber = false
--- 		else
--- 			vim.opt.relativenumber = true
--- 		end
--- 	end,
--- })
+-- Toggle relative & absolute line numbers on window enter & leave
+vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
+	pattern = { "*.c", "*.cpp", "*.py", "*.lua", "*.java", "*.js", "*.css", "*.html", "*.R", "*.sh", "*.md" },
+	callback = function(args)
+		local is_entering = args.event == "WinEnter"
+		vim.opt.relativenumber = is_entering
+	end,
+})
+
+--Toggle relative & absolute line numbers on inser mode enter & leave
+vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+	pattern = { "*.c", "*.cpp", "*.py", "*.lua", "*.java", "*.js", "*.css", "*.html", "*.R", "*.sh", "*.md" },
+	callback = function(args)
+		local is_in_insert = args.event == "InsertLeave"
+		vim.opt_local.relativenumber = is_in_insert
+	end,
+})
+
+--Toggle relative & absolute line numbers on focus enter & leave
+vim.api.nvim_create_autocmd({ "FocusLost", "FocusGained" }, {
+	pattern = { "*.c", "*.cpp", "*.py", "*.lua", "*.java", "*.js", "*.css", "*.html", "*.R", "*.sh", "*.md" },
+	callback = function(args)
+		local is_focused = args.event
+		if args.event == "FocusLost" then
+			vim.opt.relativenumber = false
+		else
+			vim.opt.relativenumber = true
+		end
+	end,
+})
 
 --Load saved content of the file(mark,folds,etc)
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
