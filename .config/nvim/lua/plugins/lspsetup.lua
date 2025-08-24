@@ -22,6 +22,7 @@ return {
 					"yamlls",
 					"markdown_oxide",
 					"ts_ls",
+					"r_language_server",
 					-- "java-language-server",
 				},
 			})
@@ -43,6 +44,7 @@ return {
 			lspconfig.yamlls.setup({})
 			lspconfig.markdown_oxide.setup({})
 			lspconfig.ts_ls.setup({})
+			lspconfig.r_language_server.setup({})
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
