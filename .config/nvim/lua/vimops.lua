@@ -17,6 +17,7 @@ vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand("~/.cache/nvim/undodir")
 vim.opt.iskeyword:append("-")
 vim.opt.encoding = "UTF_8"
+vim.o.winborder="rounded"
 vim.opt.guicursor ="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 vim.api.nvim_set_hl(0, "Comment", { italic = true })
 -- Normal mode: Delete character under cursor without affecting clipboard
@@ -27,5 +28,4 @@ vim.keymap.set("v", "x", '"_x', { noremap = true })
 
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-
 return {}
