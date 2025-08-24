@@ -9,12 +9,19 @@
     "disable-scroll": false,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{name}",
+    "format": " {icon} ",
+    "persistent-workspaces": {
+    "*":[1,2,3,4]
+    },
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
+      "1": "",
+      "2": "󰈹",
+      "3": "",
+      "4": "󰨜",
+      "urgent": " ",
+      "default": "󰱱"
     }
+
   },
   "pulseaudio": {
     "format": "{icon}{volume}% ",
@@ -54,8 +61,8 @@
     "interval": 5,
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
     "critical-threshold": 100,
-    "format-critical": "{temperatureC}",
-    "format": " {temperatureC}°C"
+    "format-critical": " {temperatureC}",
+    "format": "  {temperatureC}°C"
   },
   "battery": {
     "interval": 5,
@@ -86,7 +93,7 @@
     "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
   },
   "power-profiles-daemon": {
-    "format": "{icon} ",
+    "format": " {icon} ",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {

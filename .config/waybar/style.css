@@ -1,8 +1,5 @@
-@import "/home/partha/.cache/wal/colors-waybar.css";
+@import "colors-waybar.css";
 
-@define-color bg @background;
-@define-color fg @foreground;
-@define-color textcolor @cursor;
 
 * {
   border: none;
@@ -18,34 +15,25 @@ window#waybar {
 }
 
 #workspaces button {
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0px;
   border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
-  color: @color1;
+  margin: 3px 0px 3px 0px;
+  padding: 0px 2px;
+  color: @color3;
   animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
-  background: @cursor;
+  background: @color12;
   color: @color0;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
+  margin: 3px 3px 3px 3px;
+  padding: 0px 4px;
   animation: ws_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  transition: all 0.20s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button:hover {
-  background: @cursor;
-  color: #313244;
+  background: @color12;
+  color: @color0;
   animation: ws_hover 20s ease-in-out 1;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -61,14 +49,12 @@ window#waybar {
 #custom-arch {
   background: @background;
   color: #1793d1;
-  margin-left: 0px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  font-size: 20px;
+  margin: 4px 0px ;
   padding-left: 1px;
   transition: color 0.1s;
 }
 
-/* #custom-arch, */
 #backlight,
 #battery,
 #bluetooth,
@@ -90,12 +76,10 @@ window#waybar {
 #custom-sr_end,
 #custom-rl_end,
 #custom-rr_end {
-  /* color: #cdd6f4; */
   background: @background;
   opacity: 1;
   margin: 4px 0px 4px 0px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding:0px 4px;
 }
 
 #backlight {
@@ -105,6 +89,17 @@ window#waybar {
 #battery {
   color: @color4;
 }
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 
 #clock {
   color: @color5;
@@ -126,6 +121,10 @@ window#waybar {
   color: @color4;
 }
 
+#network.disconnected {
+    color: #e78284;
+}
+
 #custom-notification {
   color: @color4;
 }
@@ -134,8 +133,16 @@ window#waybar {
   color: @color11;
 }
 
-#power-profiles-daemon {
+#power-profiles-daemon.balanced {
   color: @color12;
+}
+
+#power-profiles-daemon.performance {
+    color: #e78284;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #40a02b ;
 }
 
 #pulseaudio {
