@@ -9,7 +9,8 @@ return {
 				java = { "google-java-format" },
 				bash = { "shfmt" },
 				yaml = { "yamlfix" },
-				c = { "clang_format" }
+				c = { "clang_format" },
+				markdown = {"prettier"}
 			},
 		})
 	end
