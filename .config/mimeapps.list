@@ -1,0 +1,19 @@
+[Added Associations]
+application/pdf=org.pwmt.zathura.desktop;
+image/gif=imv.desktop;
+image/jpeg=imv.desktop;
+image/jpg=imv.desktop;
+image/png=imv.desktop;
+text/plain=nvim.desktop;
+video/mkv=mpv.desktop;
+video/mp4=mpv.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop;
+image/gif=imv.desktop;
+image/jpeg=imv.desktop;
+image/jpg=imv.desktop;
+image/png=imv.desktop;
+text/plain=nvim.desktop;
+video/mkv=mpv.desktop;
+video/mp4=mpv.desktop;
